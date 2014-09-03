@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="application_name">Cling</string>
+
+    <integer name="fade_animation_duration">400</integer>
+
+    <string name="menu_item_home">Home</string>
+    <string name="menu_item_cart">Cart</string>
+    <string name="menu_item_camera">Camera</string>
+    <string name="menu_item_profile">Profile</string>
+
+    <string name="action_settings">Settings</string>
+
+</resources>
