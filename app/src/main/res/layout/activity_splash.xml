@@ -5,15 +5,11 @@
     android:background="@color/cyan"
     tools:context="com.cling.cling.SplashActivity">
 
-    <TextView
+    <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="CLING"
-        android:textSize="100sp"
-        android:textColor="@color/red"
-        android:id="@+id/splashLogoTextView"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true" />
+        android:id="@+id/splashLogoImageView"
+        android:src="@drawable/ic_logo"
+        android:layout_centerInParent="true" />
 
 </RelativeLayout>
