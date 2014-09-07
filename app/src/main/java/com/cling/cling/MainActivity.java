@@ -1,13 +1,17 @@
 package com.cling.cling;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TabHost;
+
+import com.cling.cling.Fragments.HomeFragment;
 
 public class MainActivity extends FragmentActivity {
 
@@ -20,6 +24,7 @@ public class MainActivity extends FragmentActivity {
 
         tabHost = (TabHost) findViewById(R.id.mainTabHost);
         initTabHost();
+        tabHost.setCurrentTab(0);
     }
 
     @Override
@@ -37,6 +42,8 @@ public class MainActivity extends FragmentActivity {
             return true;
         } else if (id == R.id.action_settings) {
 
+            Intent intent = new Intent(MainActivity.this, InfoActivity.class);
+            startActivity(intent);
         }
 
         return super.onOptionsItemSelected(item);
@@ -64,6 +71,21 @@ public class MainActivity extends FragmentActivity {
             tabHost.addTab(spec);
 
         }
+
+        tabHost.setOnTabChangedListener(new TabHost.OnTabChangeListener() {
+
+            @Override
+            public void onTabChanged(String tabId) {
+
+                if (tabId.equals(ClingApp.MenuItems.HOME.getTitle())) {
+
+                    Log.i(tabId, tabId);
+
+                    getSupportFragmentManager().beginTransaction().replace(R.id.mainFragmentContainer,
+                            HomeFragment.newInstance(), ClingApp.MenuItems.HOME.getTitle()).commit();
+                }
+            }
+        });
     }
 
     private class EmptyTabFactory implements TabHost.TabContentFactory {
@@ -73,4 +95,8 @@ public class MainActivity extends FragmentActivity {
             return new View(MainActivity.this);
         }
     }
+
+
+    /* Manage fragments */
+
 }

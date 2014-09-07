@@ -9,8 +9,18 @@
     <string name="menu_item_cart">Корзина</string>
     <string name="menu_item_camera">Камера</string>
     <string name="menu_item_profile">Профиль</string>
-
     <string name="action_search">Поиск</string>
     <string name="action_settings">Настройки</string>
+
+    <string name="email">Email</string>
+    <string name="password">Пароль</string>
+
+    <string name="ok">OK</string>
+    <string name="ok_under"><u><b>OK</b></u></string>
+    <string name="registration_under"><u><b>Регистрация</b></u></string>
+
+    <string name="f">f</string>
+    <string name="vk">vk</string>
+    <string name="t">t</string>
 
 </resources>

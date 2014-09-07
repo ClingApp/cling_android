@@ -10,7 +10,7 @@
         android:layout_height="50dp"
         android:clickable="false"
         android:layout_gravity="center"
-        android:background="@drawable/selector_tab_button"
+        android:background="@android:color/transparent"
         android:id="@+id/tabImageButton" />
 
 </LinearLayout>
