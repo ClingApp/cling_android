@@ -14,4 +14,16 @@
         <item name="android:textColor">@color/red</item>
     </style>
 
+    <style name="WhiteEditText" parent="android:Widget.EditText">
+        <item name="android:background">@color/white</item>
+        <item name="android:ems">10</item>
+        <item name="android:padding">5dp</item>
+    </style>
+
+    <style name="RoundedButton" parent="android:Widget.Button">
+        <item name="android:background">@drawable/background_rounded_white</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">25sp</item>
+    </style>
+
 </resources>

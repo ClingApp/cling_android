@@ -3,7 +3,6 @@ package com.cling.cling.Adapters;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
-import android.util.Log;
 
 import com.cling.cling.Fragments.InfoFragment;
 import com.cling.cling.Fragments.LoginFragment;
@@ -23,8 +22,6 @@ public class InfoAdapter extends FragmentStatePagerAdapter {
 
     @Override
     public Fragment getItem(int position) {
-
-        Log.i(String.valueOf(position), String.valueOf(data.length));
 
         if (position == data.length) {
 

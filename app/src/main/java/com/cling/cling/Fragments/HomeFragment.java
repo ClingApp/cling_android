@@ -6,9 +6,11 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.GridView;
 
 import com.cling.cling.Adapters.GridAdapter;
+import com.cling.cling.MainActivity;
 import com.cling.cling.R;
 
 public class HomeFragment extends Fragment {
@@ -39,6 +41,13 @@ public class HomeFragment extends Fragment {
         gridView = (GridView) rootView.findViewById(R.id.homeGridView);
         gridView.setAdapter(adapter);
         //adapter.notifyDataSetChanged();
+
+        gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                MainActivity.presentFragment(getActivity(), ProductFragment.newInstance());
+            }
+        });
 
         return rootView;
     }

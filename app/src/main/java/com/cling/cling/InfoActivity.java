@@ -12,31 +12,53 @@ import com.cling.cling.Adapters.InfoAdapter;
 public class InfoActivity extends FragmentActivity {
 
     private ViewPager viewPager;
+    SimplePageIndicator pageIndicator;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
+        if (getActionBar() != null) {
+            getActionBar().hide();
+        }
         setContentView(R.layout.activity_info);
 
-        String[] descriptions = {"PAM"};
+        String[] descriptions = {"PAM", "PAM-2"};
 
         InfoAdapter adapter = new InfoAdapter(getSupportFragmentManager(), descriptions);
         viewPager = (ViewPager) findViewById(R.id.infoViewPager);
+        pageIndicator = (SimplePageIndicator) findViewById(R.id.infoPageIndicator);
         viewPager.setAdapter(adapter);
+        viewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int i, float v, int i2) {
+
+            }
+
+            @Override
+            public void onPageSelected(int i) {
+                pageIndicator.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int i) {
+
+            }
+        });
+        pageIndicator.setViewPager(viewPager);
+        pageIndicator.notifyDataSetChanged();
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
+
         getMenuInflater().inflate(R.menu.info, menu);
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
+
         int id = item.getItemId();
         if (id == R.id.action_settings) {
             return true;

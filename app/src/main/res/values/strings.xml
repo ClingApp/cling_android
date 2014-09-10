@@ -11,16 +11,22 @@
     <string name="menu_item_profile">Профиль</string>
     <string name="action_search">Поиск</string>
     <string name="action_settings">Настройки</string>
-
     <string name="email">Email</string>
     <string name="password">Пароль</string>
-
+    <string name="buy"><b>Купить</b></string>
     <string name="ok">OK</string>
     <string name="ok_under"><u><b>OK</b></u></string>
     <string name="registration_under"><u><b>Регистрация</b></u></string>
-
-    <string name="f">f</string>
-    <string name="vk">vk</string>
-    <string name="t">t</string>
+    <string name="f"><b>f</b></string>
+    <string name="vk"><b>vk</b></string>
+    <string name="t"><b>t</b></string>
+    <string name="sign_up"><b>Зарегистрироваться</b></string>
+    <string name="hint_name">Имя</string>
+    <string name="hint_surname">Фамилия</string>
+    <string name="hint_email">Email</string>
+    <string name="hint_phone">Телефон</string>
+    <string name="hint_address">Адрес</string>
+    <string name="hint_password">Пароль</string>
+    <string name="hint_repeat_password">Повторите пароль</string>
 
 </resources>

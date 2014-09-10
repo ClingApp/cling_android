@@ -2,7 +2,9 @@ package com.cling.cling;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentManager;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -12,6 +14,7 @@ import android.widget.ImageButton;
 import android.widget.TabHost;
 
 import com.cling.cling.Fragments.HomeFragment;
+import com.cling.cling.Fragments.ProfileFragment;
 
 public class MainActivity extends FragmentActivity {
 
@@ -22,9 +25,24 @@ public class MainActivity extends FragmentActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        getSupportFragmentManager().addOnBackStackChangedListener(new FragmentManager.OnBackStackChangedListener() {
+            @Override
+            public void onBackStackChanged() {
+
+                if (getActionBar() != null) {
+
+                    if (getSupportFragmentManager().getBackStackEntryCount() > 0) {
+                        getActionBar().setDisplayHomeAsUpEnabled(true);
+                    } else {
+                        getActionBar().setDisplayHomeAsUpEnabled(false);
+                    }
+                }
+            }
+        });
+
         tabHost = (TabHost) findViewById(R.id.mainTabHost);
         initTabHost();
-        tabHost.setCurrentTab(0);
+        showHome();
     }
 
     @Override
@@ -38,8 +56,22 @@ public class MainActivity extends FragmentActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
 
         int id = item.getItemId();
-        if (id == R.id.action_search) {
+        if (id == android.R.id.home) {
+
+            if (getSupportFragmentManager().getBackStackEntryCount() != 0) {
+
+                onBackPressed();
+                return true;
+
+            } else {
+
+                return super.onOptionsItemSelected(item);
+            }
+
+        } else if (id == R.id.action_search) {
+
             return true;
+
         } else if (id == R.id.action_settings) {
 
             Intent intent = new Intent(MainActivity.this, InfoActivity.class);
@@ -69,7 +101,6 @@ public class MainActivity extends FragmentActivity {
             spec.setContent(new EmptyTabFactory());
             spec.setIndicator(tabView);
             tabHost.addTab(spec);
-
         }
 
         tabHost.setOnTabChangedListener(new TabHost.OnTabChangeListener() {
@@ -79,10 +110,23 @@ public class MainActivity extends FragmentActivity {
 
                 if (tabId.equals(ClingApp.MenuItems.HOME.getTitle())) {
 
-                    Log.i(tabId, tabId);
+                    showHome();
 
+                } else if (tabId.equals(ClingApp.MenuItems.CART.getTitle())) {
+
+                    popToRootFragment();
                     getSupportFragmentManager().beginTransaction().replace(R.id.mainFragmentContainer,
-                            HomeFragment.newInstance(), ClingApp.MenuItems.HOME.getTitle()).commit();
+                            CartFragment.newInstance(), ClingApp.MenuItems.CART.getTitle()).commit();
+
+                } else if (tabId.equals(ClingApp.MenuItems.CAMERA.getTitle())) {
+
+                    Log.i("CAMERA", "CAMERA");
+
+                } else if (tabId.equals(ClingApp.MenuItems.PROFILE.getTitle())) {
+
+                    popToRootFragment();
+                    getSupportFragmentManager().beginTransaction().replace(R.id.mainFragmentContainer,
+                            ProfileFragment.newInstance(), ClingApp.MenuItems.PROFILE.getTitle()).commit();
                 }
             }
         });
@@ -99,4 +143,47 @@ public class MainActivity extends FragmentActivity {
 
     /* Manage fragments */
 
+    @Override
+    public void onBackPressed() {
+
+        if (getFragmentManager().getBackStackEntryCount() == 0) {
+
+            super.onBackPressed();
+
+        } else {
+
+            getSupportFragmentManager().popBackStack();
+        }
+    }
+
+    private void popToRootFragment() {
+
+        if (getSupportFragmentManager().getBackStackEntryCount() > 0) {
+            getSupportFragmentManager().popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE);
+        }
+    }
+
+    private void showHome() {
+
+        popToRootFragment();
+
+        if (tabHost.getCurrentTab() == ClingApp.MenuItems.HOME.getPosition()) {
+
+            getSupportFragmentManager().beginTransaction().replace(R.id.mainFragmentContainer,
+                    HomeFragment.newInstance(), ClingApp.MenuItems.HOME.getTitle()).commit();
+        } else {
+
+            tabHost.setCurrentTab(ClingApp.MenuItems.HOME.getPosition());
+        }
+    }
+
+    public static void presentFragment(FragmentActivity activity, Fragment fragment) {
+
+        if (activity != null && activity instanceof MainActivity) {
+
+            activity.getSupportFragmentManager().beginTransaction()
+                    .replace(R.id.mainFragmentContainer, fragment)
+                    .addToBackStack(null).commit();
+        }
+    }
 }

@@ -66,6 +66,5 @@ public class GridAdapter extends BaseAdapter {
 
         public ImageView imageView;
         public TextView nameTextView;
-
     }
 }

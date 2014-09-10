@@ -1,0 +1,93 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.cling.cling.Fragments.ProductFragment">
+
+
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="15dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="10dp"
+            android:paddingBottom="20dp"
+            android:background="@color/cyan">
+
+            <android.support.v4.view.ViewPager
+                android:id="@+id/productViewPager"
+                android:layout_width="match_parent"
+                android:layout_height="350dp"
+                android:background="@color/white" />
+
+            <TextView
+                android:id="@+id/productNameTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/productViewPager"
+                android:padding="10dp"
+                android:text="Название продукта"
+                android:textSize="30sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/productDescriptionTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:padding="10dp"
+                android:layout_below="@+id/productNameTextView"
+                android:layout_toLeftOf="@+id/productPriceTextView"
+                android:layout_toStartOf="@+id/productPriceTextView"
+                android:textSize="12sp"
+                android:text="Ыпуклый, разделенный дугообразными чешуйками живот, на верхушке которого еле держалось готовое вот-вот окончательно сползти " />
+
+            <TextView
+                android:id="@+id/productPriceTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/productNameTextView"
+                android:padding="10dp"
+                android:text="1999 руб"
+                android:textStyle="bold"
+                android:textColor="@color/white"
+                android:textSize="29sp" />
+
+            <Button
+                style="@style/RoundedButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/buy"
+                android:id="@+id/productBuyButton"
+                android:layout_below="@+id/productDescriptionTextView"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:background="@drawable/background_rounded_white"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:padding="15dp"
+                android:layout_alignParentBottom="true"/>
+
+            <include layout="@layout/view_share"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_alignBottom="@+id/productBuyButton"
+                android:layout_alignRight="@+id/productPriceTextView"
+                android:layout_alignEnd="@+id/productPriceTextView" />
+
+        </RelativeLayout>
+    </ScrollView>
+</RelativeLayout>

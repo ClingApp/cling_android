@@ -56,7 +56,6 @@ public class InfoFragment extends Fragment {
 
         getArgumentsObjects();
 
-
         View rootView = inflater.inflate(R.layout.fragment_info, container, false);
 
         TextView infoTextView = (TextView) rootView.findViewById(R.id.infoTextView);
