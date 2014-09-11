@@ -23,7 +23,7 @@ public class InfoActivity extends FragmentActivity {
         }
         setContentView(R.layout.activity_info);
 
-        String[] descriptions = {"PAM", "PAM-2"};
+        String[] descriptions = {};
 
         InfoAdapter adapter = new InfoAdapter(getSupportFragmentManager(), descriptions);
         viewPager = (ViewPager) findViewById(R.id.infoViewPager);

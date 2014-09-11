@@ -30,8 +30,8 @@
             android:label="@string/application_name" >
         </activity>
         <activity
-            android:name=".RegistrationActivity"
-            android:label="@string/title_activity_registration" >
+            android:name=".UniversalFragmentActivity"
+            android:label="@string/application_name">
         </activity>
     </application>
 

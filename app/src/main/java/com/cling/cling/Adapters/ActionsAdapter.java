@@ -45,7 +45,7 @@ public class ActionsAdapter extends BaseAdapter {
 
         if (view == null) {
 
-            view = LayoutInflater.from(activity).inflate(R.layout.view_item_user_action, null, false);
+            view = LayoutInflater.from(activity).inflate(R.layout.listview_item_user_action, null, false);
             holder = new ActionViewHolder();
             holder.titleTextView = (TextView) view.findViewById(R.id.actionItemTitleTextView);
             view.setTag(holder);

@@ -17,7 +17,10 @@
     <style name="WhiteEditText" parent="android:Widget.EditText">
         <item name="android:background">@color/white</item>
         <item name="android:ems">10</item>
-        <item name="android:padding">5dp</item>
+        <item name="android:paddingLeft">10dp</item>
+        <item name="android:paddingRight">10dp</item>
+        <item name="android:paddingTop">5dp</item>
+        <item name="android:paddingBottom">5dp</item>
     </style>
 
     <style name="RoundedButton" parent="android:Widget.Button">

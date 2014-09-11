@@ -40,8 +40,6 @@ public class HomeFragment extends Fragment {
         GridAdapter adapter = new GridAdapter(getActivity(), data);
         gridView = (GridView) rootView.findViewById(R.id.homeGridView);
         gridView.setAdapter(adapter);
-        //adapter.notifyDataSetChanged();
-
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {

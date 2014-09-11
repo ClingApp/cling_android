@@ -2,15 +2,12 @@
 
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
-
-    <dimen name="social_button_size">35dp</dimen>
+    <dimen name="social_button_size">40dp</dimen>
     <dimen name="social_button_padding">7dp</dimen>
-
     <dimen name="share_button_size">25dp</dimen>
     <dimen name="share_button_margin">5dp</dimen>
-
     <dimen name="avatar_size">120dp</dimen>
-
     <dimen name="profile_action_button_height">60dp</dimen>
+    <dimen name="seller_image_size">70dp</dimen>
 
 </resources>

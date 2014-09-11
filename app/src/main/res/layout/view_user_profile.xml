@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="@dimen/avatar_size"
+        android:layout_height="@dimen/avatar_size"
+        android:layout_margin="10dp"
+        android:background="@drawable/background_rounded_white" />
+
+    <TextView
+        android:id="@+id/profileNameTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@+id/imageView"
+        android:layout_toEndOf="@+id/imageView"
+        android:layout_toRightOf="@+id/imageView"
+        android:background="@color/white"
+        android:padding="5dp"
+        android:text="@string/hint_name" />
+
+    <TextView
+        android:id="@+id/profileSurnameTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/profileNameTextView"
+        android:layout_marginTop="15dp"
+        android:layout_toEndOf="@+id/imageView"
+        android:layout_toRightOf="@+id/imageView"
+        android:background="@color/white"
+        android:padding="5dp"
+        android:text="@string/hint_surname" />
+
+    <TextView
+        android:id="@+id/profilePhoneTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/profileSurnameTextView"
+        android:layout_marginTop="15dp"
+        android:layout_toEndOf="@+id/imageView"
+        android:layout_toRightOf="@+id/imageView"
+        android:background="@color/white"
+        android:padding="5dp"
+        android:text="@string/hint_phone" />
+
+    <TextView
+        android:id="@+id/profileEmailTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/imageView"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignStart="@+id/imageView"
+        android:layout_below="@+id/imageView"
+        android:layout_marginTop="5dp"
+        android:background="@color/white"
+        android:padding="5dp"
+        android:text="@string/hint_email" />
+
+    <TextView
+        android:id="@+id/profileAddressTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/profilePhoneTextView"
+        android:layout_alignLeft="@+id/profileEmailTextView"
+        android:layout_alignRight="@+id/profilePhoneTextView"
+        android:layout_alignStart="@+id/profileEmailTextView"
+        android:layout_below="@+id/profileEmailTextView"
+        android:layout_marginTop="15dp"
+        android:background="@color/white"
+        android:padding="5dp"
+        android:text="@string/hint_address" />
+
+</RelativeLayout>
