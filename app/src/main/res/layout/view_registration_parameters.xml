@@ -6,13 +6,6 @@
     android:background="@color/cyan"
     android:orientation="vertical">
 
-    <ImageView
-        android:layout_width="@dimen/avatar_size"
-        android:layout_height="@dimen/avatar_size"
-        android:layout_margin="10dp"
-        android:layout_gravity="center_horizontal"
-        android:background="@drawable/background_rounded_white"/>
-
     <EditText
         android:id="@+id/registrationNameEditText"
         style="@style/WhiteEditText"

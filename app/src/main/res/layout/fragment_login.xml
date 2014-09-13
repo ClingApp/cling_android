@@ -3,12 +3,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/cyan"
+    android:focusableInTouchMode="true"
+    android:focusable="true"
     tools:context="com.cling.cling.Fragments.LoginFragment">
 
     <include
         android:id="@+id/include"
         layout="@layout/view_sign_in"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="50dp" />
@@ -20,9 +22,11 @@
         android:layout_below="@+id/include"
         android:background="@android:color/transparent"
         android:text="@string/registration_under"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
         android:layout_marginLeft="30dp"
         android:layout_marginStart="30dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="20dp"
         android:textColor="@color/white" />
 
     <include

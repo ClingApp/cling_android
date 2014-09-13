@@ -21,7 +21,7 @@
     <string name="f"><b>f</b></string>
     <string name="vk"><b>vk</b></string>
     <string name="t"><b>t</b></string>
-    <string name="sign_up"><b>Зарегистрироваться</b></string>
+    <string name="sign_up">Зарегистрироваться</string>
     <string name="hint_name">Имя</string>
     <string name="hint_surname">Фамилия</string>
     <string name="hint_email">Email</string>
