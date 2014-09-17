@@ -1,6 +1,7 @@
 package com.cling.cling.Fragments;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -10,8 +11,8 @@ import android.widget.AdapterView;
 import android.widget.GridView;
 
 import com.cling.cling.Adapters.GridAdapter;
-import com.cling.cling.MainActivity;
 import com.cling.cling.R;
+import com.cling.cling.UniversalFragmentActivity;
 
 public class HomeFragment extends Fragment {
 
@@ -43,7 +44,13 @@ public class HomeFragment extends Fragment {
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                MainActivity.presentFragment(getActivity(), ProductFragment.newInstance());
+                //MainActivity.presentFragment(getActivity(), ProductFragment.newInstance());
+
+                String className = ProductFragment.class.getCanonicalName();
+                Intent intent = new Intent(getActivity(), UniversalFragmentActivity.class);
+                intent.putExtra(UniversalFragmentActivity.ARG_FRAGMENT, className);
+                startActivity(intent);
+                getActivity().overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
             }
         });
 

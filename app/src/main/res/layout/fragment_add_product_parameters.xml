@@ -1,0 +1,67 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.cling.cling.Fragments.AddProductParametersFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/addProductTitleEditText"
+            style="@style/WhiteEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin_medium"
+            android:layout_marginRight="@dimen/margin_medium"
+            android:layout_marginTop="@dimen/margin_medium"
+            android:hint="@string/hint_product_title" />
+
+        <EditText
+            android:id="@+id/addProductDescriptionEditText"
+            style="@style/WhiteEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/margin_medium"
+            android:layout_marginLeft="@dimen/margin_medium"
+            android:layout_marginRight="@dimen/margin_medium"
+            android:layout_marginTop="@dimen/margin_medium"
+            android:gravity="top|start"
+            android:hint="@string/hint_product_description"
+            android:inputType="textMultiLine"
+            android:maxHeight="300dp"
+            android:minHeight="150dp"
+            android:scrollbars="vertical" />
+
+        <include
+            layout="@layout/view_line"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <EditText
+            android:id="@+id/addProductTagEditText"
+            style="@style/WhiteEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin_medium"
+            android:layout_marginRight="@dimen/margin_medium"
+            android:layout_marginTop="@dimen/margin_medium"
+            android:hint="@string/hint_product_tags" />
+
+        <Button
+            android:id="@+id/addProductFirstNextButton"
+            style="@style/RoundedButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/margin_big"
+            android:paddingEnd="@dimen/margin_big"
+            android:paddingLeft="@dimen/margin_big"
+            android:paddingRight="@dimen/margin_big"
+            android:paddingStart="@dimen/margin_big"
+            android:text="@string/next" />
+
+    </LinearLayout>
+</ScrollView>

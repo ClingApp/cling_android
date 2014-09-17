@@ -59,6 +59,12 @@ public class CartFragment extends Fragment {
             }
         });
 
+//        if (android.os.Build.VERSION.SDK_INT < android.os.Build.VERSION_CODES.JELLY_BEAN_MR2) {
+//            listView.setIndicatorBounds(250, 300);
+//        } else {
+//            listView.setIndicatorBoundsRelative(250, 300);
+//        }
+
         return rootView;
     }
 }

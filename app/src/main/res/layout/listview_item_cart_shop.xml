@@ -8,7 +8,7 @@
     android:orientation="horizontal">
 
     <ImageView
-        android:layout_margin="10dp"
+        android:layout_margin="@dimen/margin_medium"
         android:layout_width="@dimen/seller_image_size"
         android:layout_height="@dimen/seller_image_size"
         android:src="@drawable/ic_profile"
@@ -18,15 +18,15 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Shop/seller name"
-        android:padding="10dp"
+        android:padding="@dimen/margin_medium"
         android:id="@+id/cartItemShopNameTextView" />
 
     <Button
         style="@style/RoundedButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_marginStart="10dp"
+        android:layout_marginLeft="@dimen/margin_medium"
+        android:layout_marginStart="@dimen/margin_medium"
         android:paddingLeft="20dp"
         android:paddingRight="20dp"
         android:focusable="false"

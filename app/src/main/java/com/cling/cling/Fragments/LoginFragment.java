@@ -4,7 +4,6 @@ package com.cling.cling.Fragments;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -35,7 +34,6 @@ public class LoginFragment extends Fragment {
             public void onClick(View v) {
 
                 String className = RegistrationFragment.class.getCanonicalName();
-                Log.i("CLASS NAME", className);
                 Intent intent = new Intent(getActivity(), UniversalFragmentActivity.class);
                 intent.putExtra(UniversalFragmentActivity.ARG_FRAGMENT, className);
                 startActivity(intent);

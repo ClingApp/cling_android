@@ -1,18 +1,18 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context="com.cling.cling.Fragments.HomeFragment">
+    tools:context="com.cling.cling.Fragments.AddProductPhotoFragment">
 
     <GridView
-        android:id="@+id/homeGridView"
+        android:id="@+id/addProductPhotoGridView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/margin_medium"
         android:layout_marginRight="@dimen/margin_medium"
+        android:horizontalSpacing="@dimen/margin_default"
         android:numColumns="auto_fit"
         android:scrollbars="none"
-        android:verticalSpacing="@dimen/margin_medium" />
+        android:verticalSpacing="@dimen/margin_default" />
 
-</LinearLayout>
+</FrameLayout>

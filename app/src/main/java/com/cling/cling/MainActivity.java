@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -13,6 +12,7 @@ import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TabHost;
 
+import com.cling.cling.Fragments.AddProductFragment;
 import com.cling.cling.Fragments.CartFragment;
 import com.cling.cling.Fragments.HomeFragment;
 import com.cling.cling.Fragments.ProfileFragment;
@@ -121,7 +121,8 @@ public class MainActivity extends FragmentActivity {
 
                 } else if (tabId.equals(ClingApp.MenuItems.CAMERA.getTitle())) {
 
-                    Log.i("CAMERA", "CAMERA");
+                    getSupportFragmentManager().beginTransaction().replace(R.id.mainFragmentContainer,
+                            AddProductFragment.newInstance(), ClingApp.MenuItems.CAMERA.getTitle()).commit();
 
                 } else if (tabId.equals(ClingApp.MenuItems.PROFILE.getTitle())) {
 

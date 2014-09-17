@@ -13,6 +13,7 @@
     <string name="action_settings">Настройки</string>
     <string name="email">Email</string>
     <string name="password">Пароль</string>
+    <string name="next">Далее</string>
     <string name="buy"><b>Купить</b></string>
     <string name="ok">OK</string>
     <string name="ok_under"><u><b>OK</b></u></string>
@@ -29,5 +30,9 @@
     <string name="hint_address">Адрес</string>
     <string name="hint_password">Пароль</string>
     <string name="hint_repeat_password">Повторите пароль</string>
+    <string name="hint_product_title">Название товара</string>
+    <string name="hint_product_tags">Теги</string>
+    <string name="hint_product_description">Описание товара</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>
