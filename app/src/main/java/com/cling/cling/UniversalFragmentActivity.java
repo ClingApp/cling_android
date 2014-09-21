@@ -3,17 +3,21 @@ package com.cling.cling;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import java.lang.reflect.Constructor;
-import java.lang.reflect.InvocationTargetException;
+import com.cling.cling.Fragments.AddProductFragment;
+import com.cling.cling.Fragments.ProductFragment;
+import com.cling.cling.Fragments.RegistrationFragment;
+import com.cling.cling.Fragments.SearchFragment;
+
+import static com.cling.cling.UniversalFragmentActivity.AppropriateFragments.*;
 
 public class UniversalFragmentActivity extends FragmentActivity {
 
 
-    public static final String ARG_FRAGMENT = "argument_fragment";
+    public static final String ARG_FRAGMENT_ID = "argument_fragment_id";
+    public static final String ARG_FRAGMENT_EXTRAS = "argument_fragment_extras";
     private Fragment currentFragment;
 
     @Override
@@ -29,7 +33,7 @@ public class UniversalFragmentActivity extends FragmentActivity {
 
         if (savedInstanceState == null && currentFragment != null) {
             getSupportFragmentManager().beginTransaction()
-                    .add(R.id.registrationFragmentContainer, currentFragment)
+                    .add(R.id.universalFragmentContainer, currentFragment)
                     .commit();
         }
     }
@@ -42,7 +46,30 @@ public class UniversalFragmentActivity extends FragmentActivity {
 
             if (!extras.isEmpty()) {
 
-                try {
+                String fragmentId = extras.getString(ARG_FRAGMENT_ID);
+                Bundle fragmentExtras;
+                if (extras.containsKey(ARG_FRAGMENT_EXTRAS)) {
+                    fragmentExtras = extras.getBundle(ARG_FRAGMENT_EXTRAS);
+                }
+
+                if (fragmentId.equals(REGISTRATION.getId())) {
+
+                    currentFragment = RegistrationFragment.newInstance();
+
+                } else if (fragmentId.equals(SEARCH.getId())) {
+
+                    currentFragment = SearchFragment.newInstance();
+
+                } else if (fragmentId.equals(PRODUCT.getId())) {
+
+                    currentFragment = ProductFragment.newInstance();
+
+                } else if (fragmentId.equals(ADD_PRODUCT.getId())) {
+
+                    currentFragment = AddProductFragment.newInstance();
+                }
+
+                /*try { escape reflection!
                     Class<?> c = Class.forName(extras.getString(ARG_FRAGMENT));
                     Constructor<?> cons = c.getConstructors()[0];
                     currentFragment = (Fragment) cons.newInstance();
@@ -56,7 +83,7 @@ public class UniversalFragmentActivity extends FragmentActivity {
                     e.printStackTrace();
                 } catch (IllegalAccessException e) {
                     e.printStackTrace();
-                }
+                }*/
             }
         }
     }
@@ -81,6 +108,24 @@ public class UniversalFragmentActivity extends FragmentActivity {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        overridePendingTransition(R.anim.fade_out_back, R.anim.fade_in_back);
+        overridePendingTransition(R.anim.slide_enter_back, R.anim.slide_leave_back);
+    }
+
+    public enum AppropriateFragments {
+
+        REGISTRATION("registration"),
+        SEARCH("search"),
+        PRODUCT("product"),
+        ADD_PRODUCT("add_product");
+
+        private String id;
+
+        AppropriateFragments(String id) {
+            this.id = id;
+        }
+
+        public String getId() {
+            return id;
+        }
     }
 }

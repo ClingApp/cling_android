@@ -33,11 +33,10 @@ public class LoginFragment extends Fragment {
             @Override
             public void onClick(View v) {
 
-                String className = RegistrationFragment.class.getCanonicalName();
                 Intent intent = new Intent(getActivity(), UniversalFragmentActivity.class);
-                intent.putExtra(UniversalFragmentActivity.ARG_FRAGMENT, className);
+                intent.putExtra(UniversalFragmentActivity.ARG_FRAGMENT_ID, UniversalFragmentActivity.AppropriateFragments.REGISTRATION.getId());
                 startActivity(intent);
-                getActivity().overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+                getActivity().overridePendingTransition(R.anim.slide_enter, R.anim.slide_leave);
             }
         });
 

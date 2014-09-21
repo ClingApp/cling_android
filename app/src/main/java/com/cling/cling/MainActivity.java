@@ -12,7 +12,6 @@ import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TabHost;
 
-import com.cling.cling.Fragments.AddProductFragment;
 import com.cling.cling.Fragments.CartFragment;
 import com.cling.cling.Fragments.HomeFragment;
 import com.cling.cling.Fragments.ProfileFragment;
@@ -71,12 +70,23 @@ public class MainActivity extends FragmentActivity {
 
         } else if (id == R.id.action_search) {
 
-            return true;
+            Intent intent = new Intent(MainActivity.this, UniversalFragmentActivity.class);
+            intent.putExtra(UniversalFragmentActivity.ARG_FRAGMENT_ID, UniversalFragmentActivity.AppropriateFragments.SEARCH.getId());
+            startActivity(intent);
+            overridePendingTransition(R.anim.slide_enter, R.anim.slide_leave);
 
         } else if (id == R.id.action_settings) {
 
             Intent intent = new Intent(MainActivity.this, InfoActivity.class);
             startActivity(intent);
+
+        } else if (id == R.id.action_add) {
+
+            Intent intent = new Intent(MainActivity.this, UniversalFragmentActivity.class);
+            intent.putExtra(UniversalFragmentActivity.ARG_FRAGMENT_ID, UniversalFragmentActivity.AppropriateFragments.ADD_PRODUCT.getId());
+            startActivity(intent);
+            overridePendingTransition(R.anim.slide_enter, R.anim.slide_leave);
+
         }
 
         return super.onOptionsItemSelected(item);
@@ -119,17 +129,18 @@ public class MainActivity extends FragmentActivity {
                     getSupportFragmentManager().beginTransaction().replace(R.id.mainFragmentContainer,
                             CartFragment.newInstance(), ClingApp.MenuItems.CART.getTitle()).commit();
 
-                } else if (tabId.equals(ClingApp.MenuItems.CAMERA.getTitle())) {
-
-                    getSupportFragmentManager().beginTransaction().replace(R.id.mainFragmentContainer,
-                            AddProductFragment.newInstance(), ClingApp.MenuItems.CAMERA.getTitle()).commit();
-
                 } else if (tabId.equals(ClingApp.MenuItems.PROFILE.getTitle())) {
 
                     popToRootFragment();
                     getSupportFragmentManager().beginTransaction().replace(R.id.mainFragmentContainer,
                             ProfileFragment.newInstance(), ClingApp.MenuItems.PROFILE.getTitle()).commit();
                 }
+                /*else if (tabId.equals(ClingApp.MenuItems.CAMERA.getTitle())) {
+
+                    getSupportFragmentManager().beginTransaction().replace(R.id.mainFragmentContainer,
+                            AddProductFragment.newInstance(), ClingApp.MenuItems.CAMERA.getTitle()).commit();
+
+                }*/
             }
         });
     }

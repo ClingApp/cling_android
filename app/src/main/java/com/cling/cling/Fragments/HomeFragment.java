@@ -44,13 +44,11 @@ public class HomeFragment extends Fragment {
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                //MainActivity.presentFragment(getActivity(), ProductFragment.newInstance());
 
-                String className = ProductFragment.class.getCanonicalName();
                 Intent intent = new Intent(getActivity(), UniversalFragmentActivity.class);
-                intent.putExtra(UniversalFragmentActivity.ARG_FRAGMENT, className);
+                intent.putExtra(UniversalFragmentActivity.ARG_FRAGMENT_ID, UniversalFragmentActivity.AppropriateFragments.PRODUCT.getId());
                 startActivity(intent);
-                getActivity().overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+                getActivity().overridePendingTransition(R.anim.slide_enter, R.anim.slide_leave);
             }
         });
 
