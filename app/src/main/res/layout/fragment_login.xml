@@ -3,8 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/cyan"
-    android:focusableInTouchMode="true"
     android:focusable="true"
+    android:focusableInTouchMode="true"
     tools:context="com.cling.cling.Fragments.LoginFragment">
 
     <include
@@ -20,13 +20,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/include"
+        android:layout_marginLeft="@dimen/margin_medium"
+        android:layout_marginStart="@dimen/margin_medium"
+        android:layout_marginTop="@dimen/margin_medium"
         android:background="@android:color/transparent"
-        android:text="@string/registration_under"
         android:paddingLeft="@dimen/margin_medium"
         android:paddingRight="@dimen/margin_medium"
-        android:layout_marginLeft="30dp"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="20dp"
+        android:text="@string/registration_under"
         android:textColor="@color/white" />
 
     <include
@@ -35,6 +35,8 @@
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/signUpButton"
         android:layout_alignStart="@+id/signUpButton"
-        android:layout_below="@+id/signUpButton" />
+        android:layout_below="@+id/signUpButton"
+        android:layout_marginLeft="@dimen/margin_default"
+        android:layout_marginStart="@dimen/margin_default" />
 
 </RelativeLayout>

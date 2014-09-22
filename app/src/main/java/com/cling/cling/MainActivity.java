@@ -2,9 +2,9 @@ package com.cling.cling;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
+import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -12,13 +12,12 @@ import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TabHost;
 
-import com.cling.cling.Fragments.CartFragment;
-import com.cling.cling.Fragments.HomeFragment;
-import com.cling.cling.Fragments.ProfileFragment;
+import com.cling.cling.Adapters.MainFragmentAdapter;
 
 public class MainActivity extends FragmentActivity {
 
     private TabHost tabHost;
+    private ViewPager viewPager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,9 +39,10 @@ public class MainActivity extends FragmentActivity {
             }
         });
 
-        tabHost = (TabHost) findViewById(R.id.mainTabHost);
+        initViewPager();
         initTabHost();
-        showHome();
+
+        //showHome();
     }
 
     @Override
@@ -93,9 +93,37 @@ public class MainActivity extends FragmentActivity {
     }
 
 
+    /* Manage view pager*/
+
+    private void initViewPager() {
+
+        MainFragmentAdapter adapter = new MainFragmentAdapter(getSupportFragmentManager());
+        viewPager = (ViewPager) findViewById(R.id.mainViewPager);
+        viewPager.setAdapter(adapter);
+        viewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int i, float v, int i2) {
+
+            }
+
+            @Override
+            public void onPageSelected(int i) {
+                tabHost.setCurrentTab(i);
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int i) {
+
+            }
+        });
+    }
+
+
     /* Manage tabs */
 
     private void initTabHost() {
+
+        tabHost = (TabHost) findViewById(R.id.mainTabHost);
 
         tabHost.setup();
         TabHost.TabSpec spec;
@@ -119,28 +147,12 @@ public class MainActivity extends FragmentActivity {
             @Override
             public void onTabChanged(String tabId) {
 
-                if (tabId.equals(ClingApp.MenuItems.HOME.getTitle())) {
+                for (ClingApp.MenuItems item : ClingApp.MenuItems.values()) {
 
-                    showHome();
-
-                } else if (tabId.equals(ClingApp.MenuItems.CART.getTitle())) {
-
-                    popToRootFragment();
-                    getSupportFragmentManager().beginTransaction().replace(R.id.mainFragmentContainer,
-                            CartFragment.newInstance(), ClingApp.MenuItems.CART.getTitle()).commit();
-
-                } else if (tabId.equals(ClingApp.MenuItems.PROFILE.getTitle())) {
-
-                    popToRootFragment();
-                    getSupportFragmentManager().beginTransaction().replace(R.id.mainFragmentContainer,
-                            ProfileFragment.newInstance(), ClingApp.MenuItems.PROFILE.getTitle()).commit();
+                    if (tabId.equals(item.getTitle())) {
+                        viewPager.setCurrentItem(item.getPosition(), true);
+                    }
                 }
-                /*else if (tabId.equals(ClingApp.MenuItems.CAMERA.getTitle())) {
-
-                    getSupportFragmentManager().beginTransaction().replace(R.id.mainFragmentContainer,
-                            AddProductFragment.newInstance(), ClingApp.MenuItems.CAMERA.getTitle()).commit();
-
-                }*/
             }
         });
     }
@@ -176,7 +188,7 @@ public class MainActivity extends FragmentActivity {
         }
     }
 
-    private void showHome() {
+    /*private void showHome() {
 
         popToRootFragment();
 
@@ -199,5 +211,5 @@ public class MainActivity extends FragmentActivity {
                     R.anim.slide_in_left,
                     R.anim.slide_leave_rignt).replace(R.id.mainFragmentContainer, fragment).addToBackStack(null).commit();
         }
-    }
+    }*/
 }

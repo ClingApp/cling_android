@@ -11,17 +11,25 @@
     <EditText
         android:id="@+id/emailEditText"
         style="@style/WhiteEditText"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/margin_medium"
         android:hint="@string/hint_email"
+        android:layout_marginLeft="@dimen/margin_big"
+        android:layout_marginRight="@dimen/margin_big"
+        android:layout_marginEnd="@dimen/margin_big"
+        android:layout_marginStart="@dimen/margin_big"
+        android:layout_marginTop="@dimen/margin_default"
         android:inputType="textEmailAddress" />
 
     <EditText
         android:id="@+id/passwordEditText"
         style="@style/WhiteEditText"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/margin_big"
+        android:layout_marginRight="@dimen/margin_big"
+        android:layout_marginEnd="@dimen/margin_big"
+        android:layout_marginStart="@dimen/margin_big"
         android:layout_marginTop="15dp"
         android:hint="@string/hint_password"
         android:inputType="textPassword" />
