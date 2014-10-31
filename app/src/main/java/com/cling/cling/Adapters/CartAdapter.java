@@ -66,11 +66,11 @@ public class CartAdapter extends BaseExpandableListAdapter {
     public View getGroupView(int groupPosition, boolean isExpanded, View convertView, ViewGroup parent) {
 
         GroupViewHolder holder;
-        String sellerName = "Seller" + String.valueOf(groupPosition);
+        //String sellerName = "Seller" + String.valueOf(groupPosition);
 
         if (convertView == null) {
 
-            convertView = LayoutInflater.from(activity).inflate(R.layout.listview_item_cart_shop, null, false);
+            convertView = LayoutInflater.from(activity).inflate(R.layout.listview_item_cart_shop, parent, false);
             holder = new GroupViewHolder();
             holder.imageView = (ImageView) convertView.findViewById(R.id.cartItemShopImage);
             holder.nameTextView = (TextView) convertView.findViewById(R.id.cartItemShopNameTextView);
@@ -82,7 +82,8 @@ public class CartAdapter extends BaseExpandableListAdapter {
             holder = (GroupViewHolder) convertView.getTag();
         }
 
-        holder.nameTextView.setText(sellerName);
+        //holder.nameTextView.setText(sellerName);
+        holder.imageView.setImageResource(R.drawable.dump_avatar);
 
         return convertView;
     }
@@ -95,7 +96,7 @@ public class CartAdapter extends BaseExpandableListAdapter {
 
         if (convertView == null) {
 
-            convertView = LayoutInflater.from(activity).inflate(R.layout.listview_item_cart_product, null, false);
+            convertView = LayoutInflater.from(activity).inflate(R.layout.listview_item_cart_product, parent, false);
             holder = new ChildViewHolder();
             holder.imageView = (ImageView) convertView.findViewById(R.id.cartItemProductImage);
             holder.nameTextView = (TextView) convertView.findViewById(R.id.cartItemProductNameTextView);
@@ -108,6 +109,12 @@ public class CartAdapter extends BaseExpandableListAdapter {
         }
 
         holder.nameTextView.setText(productName);
+        //TODO: remove dump images later
+        if (groupPosition == 0) {
+            holder.imageView.setImageResource(R.drawable.dump_product_2);
+        } else {
+            holder.imageView.setImageResource(R.drawable.dump_product_3);
+        }
 
         return convertView;
     }

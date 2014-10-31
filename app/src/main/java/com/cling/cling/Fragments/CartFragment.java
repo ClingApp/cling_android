@@ -9,6 +9,7 @@ import android.widget.ExpandableListView;
 
 import com.cling.cling.Adapters.CartAdapter;
 import com.cling.cling.R;
+import com.cling.cling.Utilities.Helper;
 
 import java.util.ArrayList;
 
@@ -44,6 +45,14 @@ public class CartFragment extends Fragment {
 
         adapter = new CartAdapter(getActivity(), groups);
         listView = (ExpandableListView) rootView.findViewById(R.id.cartExpandableListView);
+
+        //indicator position
+        int width = getResources().getDisplayMetrics().widthPixels;
+        if (android.os.Build.VERSION.SDK_INT < android.os.Build.VERSION_CODES.JELLY_BEAN_MR2) {
+            listView.setIndicatorBounds(width - Helper.getPixelValue(40), width);
+        } else {
+            listView.setIndicatorBoundsRelative(width - Helper.getPixelValue(40), width);
+        }
         listView.setAdapter(adapter);
         listView.setOnGroupClickListener(new ExpandableListView.OnGroupClickListener() {
             @Override
@@ -58,12 +67,6 @@ public class CartFragment extends Fragment {
                 return true;
             }
         });
-
-//        if (android.os.Build.VERSION.SDK_INT < android.os.Build.VERSION_CODES.JELLY_BEAN_MR2) {
-//            listView.setIndicatorBounds(250, 300);
-//        } else {
-//            listView.setIndicatorBoundsRelative(250, 300);
-//        }
 
         return rootView;
     }

@@ -2,30 +2,36 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/cyan"
+    android:background="@color/white"
     tools:context="com.cling.cling.Fragments.ProfileFragment">
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
         <include
+            android:id="@+id/includeProfileView"
             layout="@layout/view_user_profile"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-
-        <include
-            android:id="@+id/includeProfileDivider"
-            layout="@layout/view_line"
-            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="25dp" />
+            android:layout_marginBottom="@dimen/margin_medium"/>
 
         <include
-            layout="@layout/view_user_actions"
-            android:layout_width="match_parent"
+            layout="@layout/view_line"
+            android:layout_below="@+id/includeProfileView"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
-    </LinearLayout>
+        <LinearLayout
+            android:layout_marginTop="@dimen/margin_default"
+            android:layout_below="@+id/includeProfileView"
+            android:orientation="vertical"
+            android:id="@+id/userProfileActionLayout"
+            android:layout_width="match_parent"
+            android:gravity="center"
+            android:paddingBottom="@dimen/margin_default"
+            android:layout_height="wrap_content" />
+
+    </RelativeLayout>
 </ScrollView>

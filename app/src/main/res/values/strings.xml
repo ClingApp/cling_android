@@ -34,5 +34,11 @@
     <string name="hint_product_tags">Теги</string>
     <string name="hint_product_description">Описание товара</string>
     <string name="hint_search">Поиск</string>
+    <string name="title_make_order">Buy</string>
+    <string name="title_action_my_items">Мои товары</string>
+    <string name="title_action_my_orders">Мои покупки</string>
+    <string name="title_action_pass_change">Изменить пароль</string>
+    <string name="title_action_feedback">Оценить</string>
+    <string name="title_action_logout">Выйти</string>
 
 </resources>

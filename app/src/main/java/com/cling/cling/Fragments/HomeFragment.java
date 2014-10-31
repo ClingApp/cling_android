@@ -36,7 +36,7 @@ public class HomeFragment extends Fragment {
 
         View rootView = inflater.inflate(R.layout.fragment_home, container, false);
 
-        String[] data = {"a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k"};
+        String[] data = {"a", "b", "c", "d", "e", "f"};
 
         GridAdapter adapter = new GridAdapter(getActivity(), data);
         gridView = (GridView) rootView.findViewById(R.id.homeGridView);

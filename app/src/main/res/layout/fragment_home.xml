@@ -3,16 +3,17 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@color/lightGray"
     tools:context="com.cling.cling.Fragments.HomeFragment">
 
     <GridView
         android:id="@+id/homeGridView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/margin_medium"
-        android:layout_marginRight="@dimen/margin_medium"
-        android:numColumns="auto_fit"
+        android:layout_marginLeft="@dimen/margin_small"
+        android:layout_marginRight="@dimen/margin_small"
+        android:numColumns="1"
         android:scrollbars="none"
-        android:verticalSpacing="@dimen/margin_medium" />
+        android:verticalSpacing="@dimen/margin_default" />
 
 </LinearLayout>

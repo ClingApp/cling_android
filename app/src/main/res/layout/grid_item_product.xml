@@ -1,24 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:background="@color/yellow" >
+    android:background="@drawable/selector_listview_basic">
 
     <ImageView
-        android:layout_width="150dp"
-        android:layout_height="250dp"
         android:id="@+id/gridItemProductImage"
-        android:src="@drawable/ic_logo"
-        android:layout_gravity="center_horizontal" />
-
-    <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="20dp"
-        android:id="@+id/gridItemProductName"
-        android:background="@color/red"
-        android:textStyle="bold" />
+        android:adjustViewBounds="true"
+        android:minHeight="250dp"
+        android:minWidth="150dp"
+        android:src="@drawable/dump_product_1" />
 
-</LinearLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/gridItemProductImage">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/red" />
+
+        <TextView
+            android:id="@+id/gridItemProductName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="@dimen/margin_default"
+            android:paddingRight="@dimen/margin_default"
+            android:paddingTop="@dimen/margin_default"
+            android:text="AWESOME feeed item"
+            android:textColor="@color/red"
+            android:textSize="@dimen/text_size_default"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/gridItemProductDescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/gridItemProductName"
+            android:ellipsize="end"
+            android:lines="2"
+            android:paddingBottom="@dimen/margin_medium"
+            android:paddingLeft="@dimen/margin_default"
+            android:paddingRight="@dimen/margin_default"
+            android:paddingTop="@dimen/margin_small"
+            android:text="Это типа описание такое моднейшее, пару строчек. Это типа описание такое моднейшее, пару строчек. Это типа описание такое моднейшее, пару строчек."
+            android:textColor="@color/defaultBlack"
+            android:textSize="@dimen/text_size_small" />
+
+    </RelativeLayout>
+
+</RelativeLayout>

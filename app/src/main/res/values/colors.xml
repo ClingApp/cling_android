@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <color name="white">#fff</color>
-    <color name="black">#000</color>
+    <color name="white">#ffffffff</color>
+    <color name="black">#ff000000</color>
+    <color name="defaultBlack">#ff333333</color>
     <color name="cyan">#ff00da9d</color>
     <color name="red">#ffff6067</color>
     <color name="yellow">#ffe9ff31</color>
     <color name="blue">#ffb8f6ff</color>
+    <color name="semiBlue">#7db8f6ff</color>
     <color name="gray">#ffa9aaad</color>
+    <color name="lightGray">#ffeeeeee</color>
 
 </resources>
