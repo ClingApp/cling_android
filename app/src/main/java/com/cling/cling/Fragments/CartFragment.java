@@ -1,14 +1,18 @@
 package com.cling.cling.Fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ExpandableListView;
 
 import com.cling.cling.Adapters.CartAdapter;
+import com.cling.cling.ClingApp;
 import com.cling.cling.R;
+import com.cling.cling.UniversalFragmentActivity;
 import com.cling.cling.Utilities.Helper;
 
 import java.util.ArrayList;
@@ -65,6 +69,16 @@ public class CartFragment extends Fragment {
                 }
 
                 return true;
+            }
+        });
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                //TODO: put product id as parameter
+                Intent intent = new Intent(getActivity(), UniversalFragmentActivity.class);
+                intent.putExtra(UniversalFragmentActivity.ARG_FRAGMENT_ID, UniversalFragmentActivity.AppropriateFragments.PRODUCT.getId());
+                ClingApp.startActivityWithAnimation(getActivity(), intent);
             }
         });
 

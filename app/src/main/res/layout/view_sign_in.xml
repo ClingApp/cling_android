@@ -10,7 +10,7 @@
 
     <EditText
         android:id="@+id/emailEditText"
-        style="@style/WhiteEditText"
+        style="@style/CyanEditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/hint_email"
@@ -23,7 +23,7 @@
 
     <EditText
         android:id="@+id/passwordEditText"
-        style="@style/WhiteEditText"
+        style="@style/CyanEditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/margin_big"

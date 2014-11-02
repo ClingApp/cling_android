@@ -28,7 +28,7 @@ public class ProductFragment extends Fragment {
 
         View rootView = inflater.inflate(R.layout.fragment_product, container, false);
 
-        String[] data = {"hueta 1", "hueta 2", "hueta 3"};
+        String[] data = {"http://cling.com/image.png","http://cling.com/image.png","http://cling.com/image.png"};
 
         GalleryAdapter galleryAdapter = new GalleryAdapter(getActivity(), data);
         galleryPagerView = (ViewPager) rootView.findViewById(R.id.productViewPager);

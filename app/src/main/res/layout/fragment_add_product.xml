@@ -1,25 +1,23 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="@color/cyan"
-    android:focusableInTouchMode="true"
+    android:background="@color/red"
     android:focusable="true"
+    android:focusableInTouchMode="true"
     tools:context="com.cling.cling.Fragments.AddProductFragment">
 
     <android.support.v4.view.ViewPager
         android:id="@+id/addProductViewPager"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="1" />
+        android:layout_height="match_parent" />
 
     <com.cling.cling.SimplePageIndicator
         android:id="@+id/addProductPageIndicator"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="0"
+        android:layout_alignParentBottom="true"
         android:background="@android:color/transparent"
         android:gravity="center" />
 
-</LinearLayout>
+</RelativeLayout>

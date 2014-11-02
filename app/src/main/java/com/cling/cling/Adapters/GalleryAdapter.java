@@ -41,9 +41,9 @@ public class GalleryAdapter extends PagerAdapter {
     @Override
     public Object instantiateItem(ViewGroup collection, final int position) {
 
-        View view = LayoutInflater.from(activity).inflate(R.layout.view_gallery_item, null, false);
+        View view = LayoutInflater.from(activity).inflate(R.layout.view_gallery_item, collection, false);
         ImageView imageView = (ImageView) view.findViewById(R.id.galleryItemImageView);
-        imageView.setImageResource(R.drawable.ic_logo);
+        imageView.setImageResource(R.drawable.dump_product_1);
         collection.addView(view, 0);
 
         return view;

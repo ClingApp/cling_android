@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
+    android:background="@color/lightGray"
     tools:context="com.cling.cling.Fragments.ProductFragment">
 
     <ScrollView
@@ -18,16 +18,16 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="15dp"
-                android:layout_marginStart="15dp"
-                android:layout_marginTop="@dimen/margin_medium"
+                android:layout_marginLeft="@dimen/margin_default"
+                android:layout_marginStart="@dimen/margin_default"
+                android:layout_marginTop="@dimen/margin_default"
                 android:background="@color/cyan"
                 android:paddingBottom="15dp">
 
                 <android.support.v4.view.ViewPager
                     android:id="@+id/productViewPager"
                     android:layout_width="match_parent"
-                    android:layout_height="150dp"
+                    android:layout_height="350dp"
                     android:background="@color/white" />
 
                 <TextView
@@ -35,10 +35,12 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/productViewPager"
-                    android:padding="@dimen/margin_medium"
+                    android:layout_marginLeft="@dimen/margin_medium"
+                    android:layout_marginStart="@dimen/margin_medium"
+                    android:layout_marginTop="@dimen/margin_medium"
                     android:text="Название продукта"
                     android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:textSize="30sp"
+                    android:textSize="29sp"
                     android:textStyle="bold" />
 
                 <TextView
@@ -48,9 +50,11 @@
                     android:layout_alignParentLeft="true"
                     android:layout_alignParentStart="true"
                     android:layout_below="@+id/productNameTextView"
+                    android:layout_marginLeft="@dimen/margin_default"
+                    android:layout_marginStart="@dimen/margin_default"
                     android:layout_toLeftOf="@+id/productPriceTextView"
                     android:layout_toStartOf="@+id/productPriceTextView"
-                    android:padding="@dimen/margin_medium"
+                    android:padding="@dimen/margin_default"
                     android:text="Ыпуклый, разделенный дугообразными чешуйками живот, на верхушке которого еле держалось готовое вот-вот окончательно сползти "
                     android:textSize="12sp" />
 
@@ -61,7 +65,7 @@
                     android:layout_alignParentEnd="true"
                     android:layout_alignParentRight="true"
                     android:layout_below="@+id/productNameTextView"
-                    android:padding="@dimen/margin_medium"
+                    android:padding="@dimen/margin_default"
                     android:text="1999 руб"
                     android:textAppearance="?android:attr/textAppearanceLarge"
                     android:textColor="@color/white"
@@ -80,7 +84,7 @@
                     android:layout_marginBottom="@dimen/margin_small"
                     android:layout_marginLeft="@dimen/margin_medium"
                     android:layout_marginRight="@dimen/margin_medium"
-                    android:layout_marginTop="@dimen/margin_small"
+                    android:layout_marginTop="@dimen/margin_default"
                     android:background="@drawable/background_rounded_white"
                     android:padding="15dp"
                     android:text="@string/buy"
@@ -94,6 +98,7 @@
                     android:layout_alignBottom="@+id/productBuyButton"
                     android:layout_alignEnd="@+id/productPriceTextView"
                     android:layout_alignRight="@+id/productPriceTextView"
+                    android:layout_marginBottom="@dimen/margin_default"
                     android:layout_marginEnd="@dimen/margin_medium"
                     android:layout_marginRight="@dimen/margin_medium" />
 

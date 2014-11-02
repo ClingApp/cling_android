@@ -41,8 +41,6 @@ public class MainActivity extends FragmentActivity {
 
         initViewPager();
         initTabHost();
-
-        //showHome();
     }
 
     @Override
@@ -72,8 +70,7 @@ public class MainActivity extends FragmentActivity {
 
             Intent intent = new Intent(MainActivity.this, UniversalFragmentActivity.class);
             intent.putExtra(UniversalFragmentActivity.ARG_FRAGMENT_ID, UniversalFragmentActivity.AppropriateFragments.SEARCH.getId());
-            startActivity(intent);
-            overridePendingTransition(R.anim.slide_enter, R.anim.slide_leave);
+            ClingApp.startActivityWithAnimation(this, intent);
 
         } else if (id == R.id.action_settings) {
 
@@ -84,9 +81,7 @@ public class MainActivity extends FragmentActivity {
 
             Intent intent = new Intent(MainActivity.this, UniversalFragmentActivity.class);
             intent.putExtra(UniversalFragmentActivity.ARG_FRAGMENT_ID, UniversalFragmentActivity.AppropriateFragments.ADD_PRODUCT.getId());
-            startActivity(intent);
-            overridePendingTransition(R.anim.slide_enter, R.anim.slide_leave);
-
+            ClingApp.startActivityWithAnimation(this, intent);
         }
 
         return super.onOptionsItemSelected(item);

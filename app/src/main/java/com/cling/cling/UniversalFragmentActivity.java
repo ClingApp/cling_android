@@ -11,7 +11,11 @@ import com.cling.cling.Fragments.ProductFragment;
 import com.cling.cling.Fragments.RegistrationFragment;
 import com.cling.cling.Fragments.SearchFragment;
 
-import static com.cling.cling.UniversalFragmentActivity.AppropriateFragments.*;
+import static com.cling.cling.UniversalFragmentActivity.AppropriateFragments.ADD_PRODUCT;
+import static com.cling.cling.UniversalFragmentActivity.AppropriateFragments.PRODUCT;
+import static com.cling.cling.UniversalFragmentActivity.AppropriateFragments.REGISTRATION;
+import static com.cling.cling.UniversalFragmentActivity.AppropriateFragments.SEARCH;
+import static com.cling.cling.UniversalFragmentActivity.AppropriateFragments.USER;
 
 public class UniversalFragmentActivity extends FragmentActivity {
 
@@ -55,6 +59,7 @@ public class UniversalFragmentActivity extends FragmentActivity {
                 if (fragmentId.equals(REGISTRATION.getId())) {
 
                     currentFragment = RegistrationFragment.newInstance();
+                    setTitle(getString(R.string.registration));
 
                 } else if (fragmentId.equals(SEARCH.getId())) {
 
@@ -67,6 +72,11 @@ public class UniversalFragmentActivity extends FragmentActivity {
                 } else if (fragmentId.equals(ADD_PRODUCT.getId())) {
 
                     currentFragment = AddProductFragment.newInstance();
+                    setTitle(getString(R.string.title_item_adding));
+
+                } else if (fragmentId.equals(USER.getId())) {
+
+                    //currentFragment = ProfileFragment.newInstance();
                 }
 
                 /*try { escape reflection!
@@ -108,7 +118,7 @@ public class UniversalFragmentActivity extends FragmentActivity {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        overridePendingTransition(R.anim.slide_enter_back, R.anim.slide_leave_back);
+        overridePendingTransition(R.anim.scale_close_back, R.anim.scale_open_back);
     }
 
     public enum AppropriateFragments {
@@ -116,7 +126,8 @@ public class UniversalFragmentActivity extends FragmentActivity {
         REGISTRATION("registration"),
         SEARCH("search"),
         PRODUCT("product"),
-        ADD_PRODUCT("add_product");
+        ADD_PRODUCT("add_product"),
+        USER("user");
 
         private String id;
 

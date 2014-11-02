@@ -11,6 +11,7 @@ import com.cling.cling.Adapters.AddProductAdapter;
 import com.cling.cling.R;
 import com.cling.cling.SimplePageIndicator;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class AddProductFragment extends Fragment {
@@ -33,10 +34,14 @@ public class AddProductFragment extends Fragment {
 
         View rootView = inflater.inflate(R.layout.fragment_add_product, container, false);
 
-        AddProductAdapter adapter = new AddProductAdapter(getChildFragmentManager(), this);
+        fragmentsList = new ArrayList<Fragment>();
+        fragmentsList.add(AddProductPhotoFragment.newInstance(0));
+
+        AddProductAdapter adapter = new AddProductAdapter(getFragmentManager(), fragmentsList);
 
         viewPager = (ViewPager) rootView.findViewById(R.id.addProductViewPager);
         pageIndicator = (SimplePageIndicator) rootView.findViewById(R.id.addProductPageIndicator);
+        //pageIndicator.setHighlightIndex(0);
         viewPager.setAdapter(adapter);
         viewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
@@ -58,6 +63,11 @@ public class AddProductFragment extends Fragment {
         pageIndicator.notifyDataSetChanged();
 
         return rootView;
+    }
+
+    public void addFragment() {
+
+
     }
 
     public void selectPage(int position) {

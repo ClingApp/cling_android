@@ -19,13 +19,14 @@
 
         <Button
             android:id="@+id/registrationSignUpButton"
-            style="@style/RoundedButtonBuy"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/includeRegistrationParameters"
             android:layout_centerHorizontal="true"
-            android:layout_margin="15dp"
+            android:layout_margin="@dimen/margin_medium"
             android:padding="15dp"
+            android:textColor="@color/text_selector_user_action_logout"
+            android:background="@drawable/selector_user_action_logout"
             android:text="@string/sign_up" />
 
     </RelativeLayout>

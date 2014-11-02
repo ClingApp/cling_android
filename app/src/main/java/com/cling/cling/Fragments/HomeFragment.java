@@ -11,6 +11,7 @@ import android.widget.AdapterView;
 import android.widget.GridView;
 
 import com.cling.cling.Adapters.GridAdapter;
+import com.cling.cling.ClingApp;
 import com.cling.cling.R;
 import com.cling.cling.UniversalFragmentActivity;
 
@@ -45,10 +46,10 @@ public class HomeFragment extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
+                //TODO: put product id as parameter
                 Intent intent = new Intent(getActivity(), UniversalFragmentActivity.class);
                 intent.putExtra(UniversalFragmentActivity.ARG_FRAGMENT_ID, UniversalFragmentActivity.AppropriateFragments.PRODUCT.getId());
-                startActivity(intent);
-                getActivity().overridePendingTransition(R.anim.slide_enter, R.anim.slide_leave);
+                ClingApp.startActivityWithAnimation(getActivity(), intent);
             }
         });
 

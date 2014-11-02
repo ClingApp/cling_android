@@ -22,6 +22,8 @@ public class SimplePageIndicator extends LinearLayout implements ViewPager.OnPag
     private ViewPager.OnPageChangeListener onPageChangeListener;
     private LinearLayout itemContainer;
     private List<ImageView> items;
+    private int highlightIndex = -1;
+
     private OnClickListener itemClickListener = new OnClickListener() {
 
         @Override
@@ -30,6 +32,10 @@ public class SimplePageIndicator extends LinearLayout implements ViewPager.OnPag
             pager.setCurrentItem(position);
         }
     };
+
+    public void setHighlightIndex(int highlightIndex) {
+        this.highlightIndex = highlightIndex;
+    }
 
     public SimplePageIndicator(Context context) {
 
@@ -101,7 +107,12 @@ public class SimplePageIndicator extends LinearLayout implements ViewPager.OnPag
                 if (i == pager.getCurrentItem()) {
                     item.setImageResource(R.drawable.page_indicator_on);
                 } else {
-                    item.setImageResource(R.drawable.page_indicator_off);
+
+                    if (i == highlightIndex) {
+                        item.setImageResource(R.drawable.page_indicator_highlight);
+                    } else {
+                        item.setImageResource(R.drawable.page_indicator_off);
+                    }
                 }
 
                 item.setTag(i);
@@ -144,7 +155,11 @@ public class SimplePageIndicator extends LinearLayout implements ViewPager.OnPag
                     if (i == position) {
                         item.setImageResource(R.drawable.page_indicator_on);
                     } else {
-                        item.setImageResource(R.drawable.page_indicator_off);
+                        if (i == highlightIndex) {
+                            item.setImageResource(R.drawable.page_indicator_highlight);
+                        } else {
+                            item.setImageResource(R.drawable.page_indicator_off);
+                        }
                     }
                 }
             }

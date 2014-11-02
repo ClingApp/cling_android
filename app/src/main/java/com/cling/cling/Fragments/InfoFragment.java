@@ -33,7 +33,7 @@ public class InfoFragment extends Fragment {
     }
 
     public InfoFragment() {
-        // Required empty public constructor
+
     }
 
     private void getArgumentsObjects() {
@@ -63,9 +63,9 @@ public class InfoFragment extends Fragment {
 
         infoTextView.setText(info);
 
-        if (position != 0) {
+        /*if (position != 0) {
             imageView.setVisibility(View.INVISIBLE);
-        }
+        }*/
 
         //TODO: load description image (if needed)
 

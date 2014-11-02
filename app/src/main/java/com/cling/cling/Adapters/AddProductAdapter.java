@@ -4,9 +4,9 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 
-import com.cling.cling.Fragments.AddProductFragment;
 import com.cling.cling.Fragments.AddProductParametersFragment;
-import com.cling.cling.Fragments.AddProductPhotoFragment;
+
+import java.util.List;
 
 /**
  * Created by Tier on 17.09.14.
@@ -14,38 +14,36 @@ import com.cling.cling.Fragments.AddProductPhotoFragment;
 
 public class AddProductAdapter extends FragmentStatePagerAdapter {
 
-    private static final int NUMBER_OF_FRAGMENTS = 2;
-    private AddProductFragment parentFragment;
+    private List<Fragment> fragmentList;
 
-    public AddProductAdapter(FragmentManager fm, AddProductFragment parentFragment) {
+    public AddProductAdapter(FragmentManager fm, List<Fragment> fragmentList) {
         super(fm);
-        this.parentFragment = parentFragment;
+        this.fragmentList = fragmentList;
+
+        for (Fragment fragment : fragmentList) {
+            if (fragment.isAdded()) {
+                fm.beginTransaction().remove(fragment).commit();
+            }
+        }
     }
 
     @Override
-    public Fragment getItem(final int position) {
+    public Fragment getItem(int position) {
 
-        Fragment fragment = null;
-
-        switch (position) {
-            case 0: {
-
-                AddProductParametersFragment parametersFragment = AddProductParametersFragment.newInstance();
-                parametersFragment.parentFragment = parentFragment;
-                fragment = parametersFragment;
-            }
-            break;
-            case 1: {
-                fragment = AddProductPhotoFragment.newInstance();
-            }
-            break;
+        if (position == 0) {
+            return AddProductParametersFragment.newInstance();
+        } else {
+            return fragmentList.get(position - 1);
         }
-
-        return fragment;
     }
 
     @Override
     public int getCount() {
-        return NUMBER_OF_FRAGMENTS;
+        return fragmentList.size() + 1;
     }
+
+    /*@Override
+    public int getItemPosition(Object object){
+        return PagerAdapter.POSITION_NONE;
+    }*/
 }

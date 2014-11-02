@@ -1,7 +1,9 @@
 package com.cling.cling;
 
+import android.app.Activity;
 import android.app.Application;
 import android.content.Context;
+import android.content.Intent;
 
 /**
  * Created by Tier on 02.09.14.
@@ -48,5 +50,11 @@ public class ClingApp extends Application {
         public int getDrawableId() {
             return drawableId;
         }
+    }
+
+    public static void startActivityWithAnimation(Activity activity, Intent intent) {
+
+        activity.startActivity(intent);
+        activity.overridePendingTransition(R.anim.scale_open, R.anim.scale_close);
     }
 }

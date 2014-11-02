@@ -1,18 +1,33 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.cling.cling.Fragments.AddProductPhotoFragment">
 
-    <GridView
-        android:id="@+id/addProductPhotoGridView"
+    <include layout="@layout/view_add_photo"
+        android:id="@+id/addProductPhotoIncludeAddPhotoView"
+        android:layout_width="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_height="wrap_content"/>
+
+    <ImageView
+        android:id="@+id/addProductPhotoImageView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:adjustViewBounds="true"
+        android:background="@android:color/transparent"
+        android:scaleType="centerCrop"
+        android:visibility="gone" />
+
+    <include
+        android:id="@+id/addProductPhotoDeleteView"
+        layout="@layout/view_remove_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/margin_medium"
-        android:layout_marginRight="@dimen/margin_medium"
-        android:horizontalSpacing="@dimen/margin_default"
-        android:numColumns="auto_fit"
-        android:scrollbars="none"
-        android:verticalSpacing="@dimen/margin_default" />
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_margin="@dimen/margin_default"
+        android:visibility="visible" />
 
-</FrameLayout>
+</RelativeLayout>

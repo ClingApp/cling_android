@@ -28,6 +28,10 @@ public class LoginFragment extends Fragment {
 
         View rootView = inflater.inflate(R.layout.fragment_login, container, false);
 
+        Button face = (Button) rootView.findViewById(R.id.facebookButton);
+        Button vk = (Button) rootView.findViewById(R.id.vkontakteButton);
+        Button twitter = (Button) rootView.findViewById(R.id.twitterButton);
+
         Button registrationButton = (Button) rootView.findViewById(R.id.signUpButton);
         registrationButton.setOnClickListener(new View.OnClickListener() {
             @Override

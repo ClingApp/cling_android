@@ -22,6 +22,7 @@
         android:id="@+id/infoTextView"
         android:layout_alignParentBottom="true"
         android:textColor="@color/white"
+        android:textSize="@dimen/text_size_default"
         android:padding="15dp" />
 
 </RelativeLayout>
