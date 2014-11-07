@@ -8,7 +8,7 @@ import android.view.MenuItem;
 
 import com.cling.cling.Fragments.AddProductFragment;
 import com.cling.cling.Fragments.ProductFragment;
-import com.cling.cling.Fragments.RegistrationFragment;
+import com.cling.cling.Fragments.RegistrationDialogFragment;
 import com.cling.cling.Fragments.SearchFragment;
 
 import static com.cling.cling.UniversalFragmentActivity.AppropriateFragments.ADD_PRODUCT;
@@ -58,7 +58,7 @@ public class UniversalFragmentActivity extends FragmentActivity {
 
                 if (fragmentId.equals(REGISTRATION.getId())) {
 
-                    currentFragment = RegistrationFragment.newInstance();
+                    currentFragment = RegistrationDialogFragment.newInstance();
                     setTitle(getString(R.string.registration));
 
                 } else if (fragmentId.equals(SEARCH.getId())) {

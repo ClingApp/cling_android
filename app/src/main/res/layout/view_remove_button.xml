@@ -10,17 +10,17 @@
     android:clickable="true">
 
     <View
-        android:layout_width="20dp"
+        android:layout_width="18dp"
         android:layout_height="5dp"
         android:layout_centerInParent="true"
-        android:background="@color/lightGray"
+        android:background="@color/gray"
         android:rotation="45" />
 
     <View
         android:layout_width="5dp"
-        android:layout_height="20dp"
+        android:layout_height="18dp"
         android:layout_centerInParent="true"
-        android:background="@color/lightGray"
+        android:background="@color/gray"
         android:rotation="45" />
 
 </RelativeLayout>

@@ -4,8 +4,8 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 
+import com.cling.cling.Fragments.AuthFragment;
 import com.cling.cling.Fragments.InfoFragment;
-import com.cling.cling.Fragments.LoginFragment;
 
 /**
  * Created by Tier on 08.09.14.
@@ -25,7 +25,7 @@ public class InfoAdapter extends FragmentStatePagerAdapter {
 
         if (position == data.length) {
 
-            return LoginFragment.newInstance();
+            return AuthFragment.newInstance();
 
         } else {
 

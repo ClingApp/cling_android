@@ -1,7 +1,6 @@
 package com.cling.cling.Fragments;
 
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -10,23 +9,22 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.cling.cling.R;
-import com.cling.cling.UniversalFragmentActivity;
 
-public class LoginFragment extends Fragment {
+public class AuthFragment extends Fragment {
 
-    public static LoginFragment newInstance() {
+    public static AuthFragment newInstance() {
 
-        return new LoginFragment();
+        return new AuthFragment();
     }
 
-    public LoginFragment() {
+    public AuthFragment() {
 
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-        View rootView = inflater.inflate(R.layout.fragment_login, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_auth, container, false);
 
         Button face = (Button) rootView.findViewById(R.id.facebookButton);
         Button vk = (Button) rootView.findViewById(R.id.vkontakteButton);
@@ -37,10 +35,20 @@ public class LoginFragment extends Fragment {
             @Override
             public void onClick(View v) {
 
-                Intent intent = new Intent(getActivity(), UniversalFragmentActivity.class);
+                /*Intent intent = new Intent(getActivity(), UniversalFragmentActivity.class);
                 intent.putExtra(UniversalFragmentActivity.ARG_FRAGMENT_ID, UniversalFragmentActivity.AppropriateFragments.REGISTRATION.getId());
                 startActivity(intent);
-                getActivity().overridePendingTransition(R.anim.slide_enter, R.anim.slide_leave);
+                getActivity().overridePendingTransition(R.anim.slide_enter, R.anim.slide_leave);*/
+
+                RegistrationDialogFragment.newInstance().show(getFragmentManager(), "registration");
+            }
+        });
+
+        Button loginButton = (Button) rootView.findViewById(R.id.signInButton);
+        loginButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                LoginDialogFragment.newInstance().show(getFragmentManager(), "login");
             }
         });
 

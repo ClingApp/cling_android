@@ -17,10 +17,24 @@ public enum PreferencesHelper {
     private Context context;
     private SharedPreferences preferences;
 
-    PreferencesHelper(Context context) {
+    private PreferencesHelper(Context context) {
         this.context = context;
         this.preferences = PreferenceManager.getDefaultSharedPreferences(context);
     }
 
     //Save your shit here.
+
+    private static final String KEY_MANUAL_LEARNED = "manual_learned";
+
+    public void setUserManualLearned(boolean learned) {
+
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putBoolean(KEY_MANUAL_LEARNED, learned);
+        editor.apply();
+    }
+
+    public boolean isUserManualLearned() {
+
+       return preferences.getBoolean(KEY_MANUAL_LEARNED, false);
+    }
 }

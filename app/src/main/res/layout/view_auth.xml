@@ -1,0 +1,73 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <Button
+        android:id="@+id/signInButton"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/background_rounded_white_edit"
+        android:text="@string/enter"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="@color/white"
+        android:textSize="18sp" />
+
+    <Button
+        android:id="@+id/signUpButton"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/signInButton"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/margin_default"
+        android:background="@drawable/background_rounded_white_edit"
+        android:text="@string/registration"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="@color/white"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/loginOrText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/signUpButton"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/margin_small"
+        android:padding="11dp"
+        android:text="@string/title_or"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="@color/lightGray" />
+
+    <View
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:layout_alignBottom="@+id/loginOrText"
+        android:layout_alignLeft="@+id/signUpButton"
+        android:layout_alignStart="@+id/signUpButton"
+        android:layout_marginBottom="@dimen/margin_medium"
+        android:layout_toLeftOf="@+id/loginOrText"
+        android:layout_toStartOf="@+id/loginOrText"
+        android:background="@color/lightGray" />
+
+    <View
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:layout_alignBottom="@+id/loginOrText"
+        android:layout_alignEnd="@+id/signUpButton"
+        android:layout_alignRight="@+id/signUpButton"
+        android:layout_alignTop="@+id/textView3"
+        android:layout_marginBottom="@dimen/margin_medium"
+        android:layout_toEndOf="@+id/loginOrText"
+        android:layout_toRightOf="@+id/loginOrText"
+        android:background="@color/lightGray" />
+
+
+    <include
+        layout="@layout/view_social"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/loginOrText"
+        android:layout_centerInParent="true" />
+
+</RelativeLayout>

@@ -17,7 +17,8 @@
     <string name="buy"><b>Купить</b></string>
     <string name="ok">OK</string>
     <string name="ok_under"><u><b>OK</b></u></string>
-    <string name="enter"><u><b>Войти</b></u></string>
+    <string name="enter">Войти</string>
+    <string name="enter_under"><u><b>Войти</b></u></string>
     <string name="registration_under"><u><b>Регистрация</b></u></string>
     <string name="registration">Регистрация</string>
     <string name="f"><b>f</b></string>
@@ -43,5 +44,6 @@
     <string name="title_action_logout">Выйти</string>
     <string name="title_choose_image">Выберите изображение</string>
     <string name="title_item_adding">Добавление товара</string>
+    <string name="title_or">или</string>
 
 </resources>

@@ -3,6 +3,7 @@
 
     <color name="white">#ffffffff</color>
     <color name="black">#ff000000</color>
+    <color name="semiBlack">#96000000</color>
     <color name="defaultBlack">#ff333333</color>
     <color name="cyan">#ff00da9d</color>
     <color name="red">#ffff6067</color>
@@ -11,5 +12,7 @@
     <color name="semiBlue">#7db8f6ff</color>
     <color name="gray">#ffa9aaad</color>
     <color name="lightGray">#ffeeeeee</color>
+    <color name="positiveGreen">#ff50c878</color>
+    <color name="negativeRed">#ffd73b3e</color>
 
 </resources>

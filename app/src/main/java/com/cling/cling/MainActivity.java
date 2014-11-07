@@ -13,6 +13,7 @@ import android.widget.ImageButton;
 import android.widget.TabHost;
 
 import com.cling.cling.Adapters.MainFragmentAdapter;
+import com.cling.cling.Utilities.PreferencesHelper;
 
 public class MainActivity extends FragmentActivity {
 
@@ -41,6 +42,12 @@ public class MainActivity extends FragmentActivity {
 
         initViewPager();
         initTabHost();
+
+        if (!PreferencesHelper.INSTANCE.isUserManualLearned()) {
+            Intent intent = new Intent(MainActivity.this, InfoActivity.class);
+            startActivity(intent);
+            PreferencesHelper.INSTANCE.setUserManualLearned(true);
+        }
     }
 
     @Override
