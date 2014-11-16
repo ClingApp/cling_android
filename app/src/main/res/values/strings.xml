@@ -45,5 +45,6 @@
     <string name="title_choose_image">Выберите изображение</string>
     <string name="title_item_adding">Добавление товара</string>
     <string name="title_or">или</string>
+    <string name="char_star">*</string>
 
 </resources>

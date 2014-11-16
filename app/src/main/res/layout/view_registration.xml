@@ -8,80 +8,13 @@
     android:gravity="center_horizontal"
     android:orientation="vertical">
 
-    <!--
-    <EditText
-        android:id="@+id/registrationNameEditText"
-        style="@style/WhiteEditText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:hint="@string/hint_name"
-        android:inputType="textPersonName"
-        android:layout_marginTop="@dimen/margin_medium"
-        android:layout_marginLeft="@dimen/margin_medium"
-        android:layout_marginRight="@dimen/margin_medium"
-        android:layout_marginBottom="@dimen/margin_default" />
-
-    <EditText
-        android:id="@+id/registrationSurnameEditText"
-        style="@style/WhiteEditText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:hint="@string/hint_surname"
-        android:inputType="textPersonName"
-        android:layout_marginTop="@dimen/margin_default"
-        android:layout_marginLeft="@dimen/margin_medium"
-        android:layout_marginRight="@dimen/margin_medium"
-        android:layout_marginBottom="@dimen/margin_default"/>
-
-    <EditText
-        android:id="@+id/registrationEmailEditText"
-        style="@style/WhiteEditText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:hint="@string/hint_email"
-        android:inputType="textEmailAddress"
-        android:layout_marginTop="@dimen/margin_default"
-        android:layout_marginLeft="@dimen/margin_medium"
-        android:layout_marginRight="@dimen/margin_medium"
-        android:layout_marginBottom="@dimen/margin_default"/>
-
-    <EditText
-        android:id="@+id/registrationPhoneEditText"
-        style="@style/WhiteEditText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:hint="@string/hint_phone"
-        android:inputType="phone"
-        android:layout_marginTop="@dimen/margin_default"
-        android:layout_marginLeft="@dimen/margin_medium"
-        android:layout_marginRight="@dimen/margin_medium"
-        android:layout_marginBottom="@dimen/margin_default"/>
-
-    <EditText
-        android:id="@+id/registrationAddressEditText"
-        style="@style/WhiteEditText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="@dimen/margin_default"
-        android:layout_marginLeft="@dimen/margin_medium"
-        android:layout_marginRight="@dimen/margin_medium"
-        android:layout_marginBottom="@dimen/margin_default"
-        android:hint="@string/hint_address"
-        android:inputType="textPostalAddress" />
-    -->
-
     <EditText
         android:id="@+id/registrationEmailEditText"
         style="@style/CyanEditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:layout_marginBottom="@dimen/margin_default"
+        android:layout_marginBottom="@dimen/margin_small"
         android:layout_marginEnd="@dimen/margin_big"
         android:layout_marginLeft="@dimen/margin_big"
         android:layout_marginRight="@dimen/margin_big"
@@ -90,10 +23,14 @@
         android:hint="@string/hint_email"
         android:inputType="textEmailAddress" />
 
-    <include
-        layout="@layout/view_line"
+    <TextView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:text="@string/char_star"
+        android:textSize="20sp"
+        android:textColor="@color/cyan"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:gravity="center"/>
 
     <EditText
         android:id="@+id/registrationPasswordEditText"
@@ -106,7 +43,6 @@
         android:layout_marginLeft="@dimen/margin_big"
         android:layout_marginRight="@dimen/margin_big"
         android:layout_marginStart="@dimen/margin_big"
-        android:layout_marginTop="@dimen/margin_default"
         android:hint="@string/password"
         android:inputType="textPassword" />
 
@@ -124,14 +60,20 @@
         android:hint="@string/hint_repeat_password"
         android:inputType="textPassword" />
 
+    <include
+        layout="@layout/view_line"
+        android:layout_width="match_parent"
+        android:layout_marginTop="@dimen/margin_medium"
+        android:layout_height="wrap_content" />
+
     <Button
         android:id="@+id/registrationSignUpButton"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/margin_medium"
+        android:layout_marginTop="@dimen/margin_default"
         android:background="@android:color/transparent"
         android:text="@string/registration_under"
-        android:textColor="@color/cyan"
+        android:textColor="@color/text_selector_user_action"
         android:textSize="20sp"
         android:textStyle="bold" />
 

@@ -19,14 +19,14 @@
         android:layout_margin="40dp"
         android:animateLayoutChanges="false"
         android:background="@drawable/background_white_rounded"
-        android:paddingBottom="@dimen/margin_medium">
+        android:paddingBottom="15dp">
 
         <include
             android:id="@+id/includeRegistrationParameters"
             layout="@layout/view_registration"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/margin_default" />
+            android:layout_marginTop="@dimen/margin_medium" />
 
     </RelativeLayout>
 </RelativeLayout>

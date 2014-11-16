@@ -21,7 +21,7 @@
         android:layout_margin="40dp"
         android:animateLayoutChanges="false"
         android:background="@drawable/background_white_rounded"
-        android:paddingBottom="@dimen/margin_medium">
+        android:paddingBottom="15dp">
 
         <include
             android:id="@+id/include"
