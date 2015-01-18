@@ -79,9 +79,6 @@ public class ProfileFragment extends Fragment {
     private enum UserAction {
 
         MY_ITEMS(R.string.title_action_my_items),
-        MY_ORDERS(R.string.title_action_my_orders),
-        CHANGE_PASSWORD(R.string.title_action_pass_change),
-        FEEDBACK(R.string.title_action_feedback),
         LOGOUT(R.string.title_action_logout);
 
         private int title;

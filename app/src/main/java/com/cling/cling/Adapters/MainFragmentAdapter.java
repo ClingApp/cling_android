@@ -1,13 +1,17 @@
 package com.cling.cling.Adapters;
 
+import android.content.Intent;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 
 import com.cling.cling.ClingApp;
+import com.cling.cling.Fragments.AddProductFragment;
 import com.cling.cling.Fragments.CartFragment;
 import com.cling.cling.Fragments.HomeFragment;
 import com.cling.cling.Fragments.ProfileFragment;
+import com.cling.cling.R;
+import com.cling.cling.UniversalFragmentActivity;
 
 /**
  * Created by Tier on 22.09.14.
@@ -26,9 +30,9 @@ public class MainFragmentAdapter extends FragmentStatePagerAdapter {
 
             return HomeFragment.newInstance();
 
-        } else if (position == ClingApp.MenuItems.CART.getPosition()) {
+        } else if (position == ClingApp.MenuItems.CAMERA.getPosition()) {
 
-            return CartFragment.newInstance();
+            return AddProductFragment.newInstance();
 
         } else if (position == ClingApp.MenuItems.PROFILE.getPosition()) {
 

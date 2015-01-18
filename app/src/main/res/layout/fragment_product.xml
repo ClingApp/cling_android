@@ -91,17 +91,6 @@
                     android:textAppearance="?android:attr/textAppearanceLarge"
                     android:textStyle="normal" />
 
-                <include
-                    layout="@layout/view_share"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignBottom="@+id/productBuyButton"
-                    android:layout_alignEnd="@+id/productPriceTextView"
-                    android:layout_alignRight="@+id/productPriceTextView"
-                    android:layout_marginBottom="@dimen/margin_default"
-                    android:layout_marginEnd="@dimen/margin_medium"
-                    android:layout_marginRight="@dimen/margin_medium" />
-
             </RelativeLayout>
 
             <View

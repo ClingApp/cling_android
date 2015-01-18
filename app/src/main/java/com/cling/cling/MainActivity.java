@@ -73,22 +73,11 @@ public class MainActivity extends FragmentActivity {
                 return super.onOptionsItemSelected(item);
             }
 
-        } else if (id == R.id.action_search) {
-
-            Intent intent = new Intent(MainActivity.this, UniversalFragmentActivity.class);
-            intent.putExtra(UniversalFragmentActivity.ARG_FRAGMENT_ID, UniversalFragmentActivity.AppropriateFragments.SEARCH.getId());
-            ClingApp.startActivityWithAnimation(this, intent);
-
         } else if (id == R.id.action_settings) {
 
             Intent intent = new Intent(MainActivity.this, InfoActivity.class);
             startActivity(intent);
 
-        } else if (id == R.id.action_add) {
-
-            Intent intent = new Intent(MainActivity.this, UniversalFragmentActivity.class);
-            intent.putExtra(UniversalFragmentActivity.ARG_FRAGMENT_ID, UniversalFragmentActivity.AppropriateFragments.ADD_PRODUCT.getId());
-            ClingApp.startActivityWithAnimation(this, intent);
         }
 
         return super.onOptionsItemSelected(item);

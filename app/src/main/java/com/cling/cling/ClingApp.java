@@ -25,8 +25,8 @@ public class ClingApp extends Application {
     public enum MenuItems {
 
         HOME(0, R.string.menu_item_home, R.drawable.selector_button_home),
-        CART(1, R.string.menu_item_cart, R.drawable.selector_button_cart),
-        //CAMERA(2, R.string.menu_item_camera, R.drawable.selector_button_camera),
+        //CART(1, R.string.menu_item_cart, R.drawable.selector_button_cart),
+        CAMERA(1, R.string.menu_item_camera, R.drawable.selector_button_camera),
         PROFILE(2, R.string.menu_item_profile, R.drawable.selector_button_profile);
 
         private int position;
