@@ -1,5 +1,6 @@
 package com.cling.cling.Fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
@@ -12,7 +13,9 @@ import android.widget.Button;
 import android.widget.RelativeLayout;
 
 import com.cling.cling.Adapters.GalleryAdapter;
+import com.cling.cling.ClingApp;
 import com.cling.cling.R;
+import com.cling.cling.UniversalFragmentActivity;
 
 public class ProductFragment extends Fragment {
 
@@ -46,13 +49,9 @@ public class ProductFragment extends Fragment {
         buyButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                FragmentTransaction ft = getFragmentManager().beginTransaction();
-                ft.setCustomAnimations(android.R.animator.fade_in,
-                        android.R.animator.fade_out);
-                ft.show(ProfileFragment.newInstance());
-
-                ft.commit();
-//                ProfileFragment.newInstance();
+                Intent intent = new Intent(getActivity(), UniversalFragmentActivity.class);
+                intent.putExtra(UniversalFragmentActivity.ARG_FRAGMENT_ID, UniversalFragmentActivity.AppropriateFragments.USER.getId());
+                ClingApp.startActivityWithAnimation(getActivity(), intent);
             }
         });
 

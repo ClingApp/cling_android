@@ -8,6 +8,7 @@ import android.view.MenuItem;
 
 import com.cling.cling.Fragments.AddProductFragment;
 import com.cling.cling.Fragments.ProductFragment;
+import com.cling.cling.Fragments.ProfileFragment;
 import com.cling.cling.Fragments.RegistrationDialogFragment;
 import com.cling.cling.Fragments.SearchFragment;
 
@@ -76,7 +77,7 @@ public class UniversalFragmentActivity extends FragmentActivity {
 
                 } else if (fragmentId.equals(USER.getId())) {
 
-                    //currentFragment = ProfileFragment.newInstance();
+                    currentFragment = ProfileFragment.newInstance();
                 }
 
                 /*try { escape reflection!
