@@ -35,20 +35,15 @@
             android:minHeight="150dp"
             android:scrollbars="vertical" />
 
-        <include
-            layout="@layout/view_line"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-
         <EditText
-            android:id="@+id/addProductTagEditText"
+            android:id="@+id/addProductPriceEditText"
             style="@style/WhiteEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/margin_medium"
             android:layout_marginRight="@dimen/margin_medium"
             android:layout_marginTop="@dimen/margin_medium"
-            android:hint="@string/hint_product_tags" />
+            android:hint="@string/hint_product_price" />
 
     </LinearLayout>
 </ScrollView>

@@ -33,7 +33,7 @@
     <string name="hint_password">Пароль</string>
     <string name="hint_repeat_password">Повторите пароль</string>
     <string name="hint_product_title">Название товара</string>
-    <string name="hint_product_tags">Теги</string>
+    <string name="hint_product_price">Цена</string>
     <string name="hint_product_description">Описание товара</string>
     <string name="hint_search">Поиск</string>
     <string name="title_make_order">Buy</string>
