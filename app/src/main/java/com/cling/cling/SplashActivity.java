@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 
 
 public class SplashActivity extends Activity {
@@ -21,6 +22,7 @@ public class SplashActivity extends Activity {
                 startActivity(intent);
                 overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                 SplashActivity.this.finish();
+                Log.v("Splash", "all well");
             }
         }, 0);
     }

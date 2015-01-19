@@ -7,6 +7,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.cling.cling.Fragments.AddProductFragment;
+import com.cling.cling.Fragments.HomeFragment;
 import com.cling.cling.Fragments.ProductFragment;
 import com.cling.cling.Fragments.ProfileFragment;
 import com.cling.cling.Fragments.RegistrationDialogFragment;
@@ -17,6 +18,7 @@ import static com.cling.cling.UniversalFragmentActivity.AppropriateFragments.PRO
 import static com.cling.cling.UniversalFragmentActivity.AppropriateFragments.REGISTRATION;
 import static com.cling.cling.UniversalFragmentActivity.AppropriateFragments.SEARCH;
 import static com.cling.cling.UniversalFragmentActivity.AppropriateFragments.USER;
+import static com.cling.cling.UniversalFragmentActivity.AppropriateFragments.USERS_PRODUCTS;
 
 public class UniversalFragmentActivity extends FragmentActivity {
 
@@ -78,6 +80,9 @@ public class UniversalFragmentActivity extends FragmentActivity {
                 } else if (fragmentId.equals(USER.getId())) {
 
                     currentFragment = ProfileFragment.newInstance();
+                } else if (fragmentId.equals(USERS_PRODUCTS.getId())) {
+
+                    currentFragment = HomeFragment.newInstance();
                 }
 
                 /*try { escape reflection!
@@ -128,7 +133,8 @@ public class UniversalFragmentActivity extends FragmentActivity {
         SEARCH("search"),
         PRODUCT("product"),
         ADD_PRODUCT("add_product"),
-        USER("user");
+        USER("user"),
+        USERS_PRODUCTS("users_products");
 
         private String id;
 

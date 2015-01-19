@@ -1,5 +1,6 @@
 package com.cling.cling.Fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
@@ -11,7 +12,10 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import com.cling.cling.ClingApp;
+import com.cling.cling.InfoActivity;
+import com.cling.cling.MainActivity;
 import com.cling.cling.R;
+import com.cling.cling.UniversalFragmentActivity;
 import com.cling.cling.Utilities.Helper;
 
 public class ProfileFragment extends Fragment {
@@ -52,26 +56,38 @@ public class ProfileFragment extends Fragment {
                 layoutParams.setMargins(Helper.getPixelValue(10), Helper.getPixelValue(20), Helper.getPixelValue(10), Helper.getPixelValue(5));
                 actionButton.setTextColor(getResources().getColorStateList(R.color.text_selector_user_action_logout));
                 actionButton.setBackgroundResource(R.drawable.selector_user_action_logout);
+                actionButton.setOnClickListener(actionsListenerLogOut);
             } else {
                 layoutParams.setMargins(Helper.getPixelValue(10), Helper.getPixelValue(5), Helper.getPixelValue(10), Helper.getPixelValue(5));
                 actionButton.setTextColor(getResources().getColorStateList(R.color.text_selector_user_action));
                 actionButton.setBackgroundResource(R.drawable.selector_user_action);
+                actionButton.setOnClickListener(actionsListenerMyItems);
             }
             actionButton.setLayoutParams(layoutParams);
             actionButton.setMinWidth(Helper.getPixelValue(300));
             actionButton.setMaxWidth(Helper.getPixelValue(400));
             actionButton.setText(action.getTitle());
             actionButton.setTag(action.getTitle());
-            actionButton.setOnClickListener(actionsListener);
 
             actionsLayout.addView(actionButton);
         }
     }
 
-    private View.OnClickListener actionsListener = new View.OnClickListener() {
+    private View.OnClickListener actionsListenerMyItems = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), UniversalFragmentActivity.class);
+                intent.putExtra(UniversalFragmentActivity.ARG_FRAGMENT_ID, UniversalFragmentActivity.AppropriateFragments.USERS_PRODUCTS.getId());
+                ClingApp.startActivityWithAnimation(getActivity(), intent);
+                Log.i("ACTION CLICK", (String) v.getTag());
+        }
+    };
 
+    private View.OnClickListener actionsListenerLogOut = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            Intent intent = new Intent(getActivity(), InfoActivity.class);
+            ClingApp.startActivityWithAnimation(getActivity(), intent);
             Log.i("ACTION CLICK", (String) v.getTag());
         }
     };

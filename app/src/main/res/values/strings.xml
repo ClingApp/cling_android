@@ -19,6 +19,7 @@
     <string name="ok_under"><u><b>OK</b></u></string>
     <string name="enter">Войти</string>
     <string name="enter_under"><u><b>Войти</b></u></string>
+    <string name="change_settings"><u><b>Изменить</b></u></string>
     <string name="registration_under"><u><b>Регистрация</b></u></string>
     <string name="registration">Регистрация</string>
     <string name="f"><b>f</b></string>
@@ -29,7 +30,7 @@
     <string name="hint_surname">Фамилия</string>
     <string name="hint_email">Email</string>
     <string name="hint_phone">Телефон</string>
-    <string name="hint_address">Адрес</string>
+    <string name="hint_address">Город</string>
     <string name="hint_password">Пароль</string>
     <string name="hint_repeat_password">Повторите пароль</string>
     <string name="hint_product_title">Название товара</string>
