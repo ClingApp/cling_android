@@ -21,6 +21,7 @@ public class ProductFragment extends Fragment {
 
     private ViewPager galleryPagerView;
     private Button buyButton;
+    private Button deleteButton;
 
 
     public static ProductFragment newInstance() {
@@ -45,8 +46,26 @@ public class ProductFragment extends Fragment {
         galleryAdapter.notifyDataSetChanged();
 
         buyButton = (Button) rootView.findViewById(R.id.productBuyButton);
+        deleteButton = (Button) rootView.findViewById(R.id.productDeleteButton);
+
+        if (!true) {
+            deleteButton.setVisibility(View.GONE);
+            buyButton.setVisibility(View.VISIBLE);
+        } else {
+            buyButton.setVisibility(View.GONE);
+            deleteButton.setVisibility(View.VISIBLE);
+        }
 
         buyButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), UniversalFragmentActivity.class);
+                intent.putExtra(UniversalFragmentActivity.ARG_FRAGMENT_ID, UniversalFragmentActivity.AppropriateFragments.USER.getId());
+                ClingApp.startActivityWithAnimation(getActivity(), intent);
+            }
+        });
+
+        deleteButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity(), UniversalFragmentActivity.class);

@@ -80,7 +80,9 @@ public class AddProductPhotoFragment extends Fragment {
         deleteButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                deleteButton.setVisibility(View.GONE);
+                photoImageView.setVisibility(View.GONE);
+                addButton.setVisibility(View.VISIBLE);
             }
         });
 
