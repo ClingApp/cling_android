@@ -28,6 +28,8 @@
             android:id="@+id/gridItemProductName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_toLeftOf="@+id/productPriceTextView"
+            android:layout_toStartOf="@+id/productPriceTextView"
             android:paddingLeft="@dimen/margin_default"
             android:paddingRight="@dimen/margin_default"
             android:paddingTop="@dimen/margin_default"
@@ -40,7 +42,13 @@
             android:id="@+id/gridItemProductDescription"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
             android:layout_below="@+id/gridItemProductName"
+            android:layout_marginLeft="@dimen/margin_default"
+            android:layout_marginStart="@dimen/margin_default"
+            android:layout_toLeftOf="@+id/productPriceTextView"
+            android:layout_toStartOf="@+id/productPriceTextView"
             android:ellipsize="end"
             android:lines="2"
             android:paddingBottom="@dimen/margin_medium"
@@ -50,6 +58,21 @@
             android:text="Это типа описание такое моднейшее, пару строчек. Это типа описание такое моднейшее, пару строчек. Это типа описание такое моднейшее, пару строчек."
             android:textColor="@color/defaultBlack"
             android:textSize="@dimen/text_size_small" />
+
+
+        <TextView
+            android:id="@+id/productPriceTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/productNameTextView"
+            android:padding="@dimen/margin_default"
+            android:text="1999 руб"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="@color/defaultBlack"
+            android:textSize="29sp"
+            android:textStyle="bold" />
 
     </RelativeLayout>
 
