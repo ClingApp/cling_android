@@ -33,7 +33,7 @@
             android:paddingLeft="@dimen/margin_default"
             android:paddingRight="@dimen/margin_default"
             android:paddingTop="@dimen/margin_default"
-            android:text="AWESOME feeed item"
+            android:text="AWESOME item"
             android:textColor="@color/red"
             android:textSize="@dimen/text_size_default"
             android:textStyle="bold" />
@@ -47,8 +47,8 @@
             android:layout_below="@+id/gridItemProductName"
             android:layout_marginLeft="@dimen/margin_default"
             android:layout_marginStart="@dimen/margin_default"
-            android:layout_toLeftOf="@+id/productPriceTextView"
-            android:layout_toStartOf="@+id/productPriceTextView"
+            android:layout_toLeftOf="@+id/gridItemProductPriceTextView"
+            android:layout_toStartOf="@+id/gridItemProductPriceTextView"
             android:ellipsize="end"
             android:lines="2"
             android:paddingBottom="@dimen/margin_medium"
@@ -61,7 +61,7 @@
 
 
         <TextView
-            android:id="@+id/productPriceTextView"
+            android:id="@+id/gridItemProductPriceTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"

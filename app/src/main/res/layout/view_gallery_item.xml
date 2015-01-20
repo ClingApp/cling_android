@@ -8,10 +8,6 @@
 
     <ImageView
         android:id="@+id/galleryItemImageView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:adjustViewBounds="true"
-        android:src="@drawable/dump_product_1"
-        android:layout_gravity="center_horizontal" />
+        style="@style/GalleryItem" />
 
 </LinearLayout>

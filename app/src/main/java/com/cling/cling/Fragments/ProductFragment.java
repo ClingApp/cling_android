@@ -10,16 +10,16 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
-import com.cling.cling.Adapters.GalleryAdapter;
 import com.cling.cling.ClingApp;
 import com.cling.cling.R;
 import com.cling.cling.UniversalFragmentActivity;
 
 public class ProductFragment extends Fragment {
 
-    private ViewPager galleryPagerView;
+    private ImageView productImageView;
     private Button buyButton;
     private Button deleteButton;
 
@@ -38,15 +38,12 @@ public class ProductFragment extends Fragment {
 
         View rootView = inflater.inflate(R.layout.fragment_product, container, false);
 
-        String[] data = {"http://cling.com/image.png","http://cling.com/image.png","http://cling.com/image.png"};
-
-        GalleryAdapter galleryAdapter = new GalleryAdapter(getActivity(), data);
-        galleryPagerView = (ViewPager) rootView.findViewById(R.id.productViewPager);
-        galleryPagerView.setAdapter(galleryAdapter);
-        galleryAdapter.notifyDataSetChanged();
-
+        productImageView = (ImageView) rootView.findViewById(R.id.productImageView);
         buyButton = (Button) rootView.findViewById(R.id.productBuyButton);
         deleteButton = (Button) rootView.findViewById(R.id.productDeleteButton);
+
+        productImageView.setImageResource(R.drawable.dump_product_1);
+
 
         if (!true) {
             deleteButton.setVisibility(View.GONE);

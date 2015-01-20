@@ -7,7 +7,6 @@ import android.support.v4.app.FragmentStatePagerAdapter;
 
 import com.cling.cling.ClingApp;
 import com.cling.cling.Fragments.AddProductFragment;
-import com.cling.cling.Fragments.CartFragment;
 import com.cling.cling.Fragments.HomeFragment;
 import com.cling.cling.Fragments.ProfileFragment;
 import com.cling.cling.R;

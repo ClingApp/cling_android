@@ -49,8 +49,9 @@ public class GridAdapter extends BaseAdapter {
             view = LayoutInflater.from(activity).inflate(R.layout.grid_item_product, parent, false);
             holder = new ProductViewHolder();
             holder.imageView = (ImageView) view.findViewById(R.id.gridItemProductImage);
-            holder.nameTextView = (TextView) view.findViewById(R.id.gridItemProductName);
+            holder.nameTextView = (TextView) view.findViewById(R.id.gridItemProductName);;
             holder.descTextView = (TextView) view.findViewById(R.id.gridItemProductDescription);
+            holder.productPriceTextView = (TextView) view.findViewById(R.id.gridItemProductPriceTextView);
             view.setTag(holder);
 
         } else {
@@ -69,5 +70,6 @@ public class GridAdapter extends BaseAdapter {
         public ImageView imageView;
         public TextView nameTextView;
         public TextView descTextView;
+        public TextView productPriceTextView;
     }
 }

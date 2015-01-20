@@ -10,8 +10,6 @@ import com.cling.cling.Fragments.AddProductFragment;
 import com.cling.cling.Fragments.HomeFragment;
 import com.cling.cling.Fragments.ProductFragment;
 import com.cling.cling.Fragments.ProfileFragment;
-import com.cling.cling.Fragments.RegistrationDialogFragment;
-import com.cling.cling.Fragments.SearchFragment;
 
 import static com.cling.cling.UniversalFragmentActivity.AppropriateFragments.ADD_PRODUCT;
 import static com.cling.cling.UniversalFragmentActivity.AppropriateFragments.PRODUCT;
@@ -59,16 +57,7 @@ public class UniversalFragmentActivity extends FragmentActivity {
                     fragmentExtras = extras.getBundle(ARG_FRAGMENT_EXTRAS);
                 }
 
-                if (fragmentId.equals(REGISTRATION.getId())) {
-
-                    currentFragment = RegistrationDialogFragment.newInstance();
-                    setTitle(getString(R.string.registration));
-
-                } else if (fragmentId.equals(SEARCH.getId())) {
-
-                    currentFragment = SearchFragment.newInstance();
-
-                } else if (fragmentId.equals(PRODUCT.getId())) {
+                if (fragmentId.equals(PRODUCT.getId())) {
 
                     currentFragment = ProductFragment.newInstance();
 

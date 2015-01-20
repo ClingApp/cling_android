@@ -34,6 +34,8 @@
     <string name="hint_phone">Телефон</string>
     <string name="hint_address">Город</string>
     <string name="hint_password">Пароль</string>
+    <string name="hint_ok">ОК</string>
+    <string name="hint_confirm">Подтвердить</string>
     <string name="hint_repeat_password">Повторите пароль</string>
     <string name="hint_product_title">Название товара</string>
     <string name="hint_product_price">Цена</string>

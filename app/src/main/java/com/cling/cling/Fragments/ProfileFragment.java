@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.cling.cling.ClingApp;
 import com.cling.cling.InfoActivity;
@@ -18,10 +19,17 @@ import com.cling.cling.R;
 import com.cling.cling.UniversalFragmentActivity;
 import com.cling.cling.Utilities.Helper;
 
+import org.w3c.dom.Text;
+
 public class ProfileFragment extends Fragment {
 
     private LinearLayout actionsLayout;
     private ImageView avatarImageView;
+    private TextView profileNameTextView;
+    private TextView profileSurnameTextView;
+    private TextView profilePhoneTextView;
+    private TextView profileEmailTextView;
+    private TextView profileAddressTextView;
 
     public static ProfileFragment newInstance() {
 
@@ -39,8 +47,19 @@ public class ProfileFragment extends Fragment {
 
         avatarImageView = (ImageView) rootView.findViewById(R.id.profileAvatarImageView);
         actionsLayout = (LinearLayout) rootView.findViewById(R.id.userProfileActionLayout);
+        profileNameTextView = (TextView) rootView.findViewById(R.id.profileNameTextView);
+        profileSurnameTextView = (TextView) rootView.findViewById(R.id.profileSurnameTextView);
+        profilePhoneTextView = (TextView) rootView.findViewById(R.id.profilePhoneTextView);
+        profileEmailTextView = (TextView) rootView.findViewById(R.id.profileEmailTextView);
+        profileAddressTextView = (TextView) rootView.findViewById(R.id.profileAddressTextView);
+
 
         avatarImageView.setImageResource(R.drawable.dump_avatar);
+        profileNameTextView.setText("jghgg");
+        profileSurnameTextView.setText("jghgg");
+        profilePhoneTextView.setText("jghgg");
+        profileEmailTextView.setText("jghgg");
+        profileAddressTextView.setText("jghgg");
         initActionButtons();
 
         return rootView;

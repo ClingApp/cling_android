@@ -11,8 +11,6 @@
     <EditText
         android:id="@+id/nameEditText"
         style="@style/CyanEditText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
         android:layout_marginEnd="@dimen/margin_big"
         android:layout_marginLeft="@dimen/margin_big"
         android:layout_marginRight="@dimen/margin_big"
@@ -24,8 +22,6 @@
     <EditText
         android:id="@+id/surnameEditText"
         style="@style/CyanEditText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
         android:layout_marginEnd="@dimen/margin_big"
         android:layout_marginLeft="@dimen/margin_big"
         android:layout_marginRight="@dimen/margin_big"
@@ -37,8 +33,6 @@
     <EditText
         android:id="@+id/phoneEditText"
         style="@style/CyanEditText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
         android:layout_marginEnd="@dimen/margin_big"
         android:layout_marginLeft="@dimen/margin_big"
         android:layout_marginRight="@dimen/margin_big"
@@ -50,8 +44,6 @@
     <EditText
         android:id="@+id/emailEditText"
         style="@style/CyanEditText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
         android:layout_marginEnd="@dimen/margin_big"
         android:layout_marginLeft="@dimen/margin_big"
         android:layout_marginRight="@dimen/margin_big"
@@ -63,13 +55,11 @@
     <EditText
         android:id="@+id/addressEditText"
         style="@style/CyanEditText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
         android:layout_marginEnd="@dimen/margin_big"
         android:layout_marginLeft="@dimen/margin_big"
         android:layout_marginRight="@dimen/margin_big"
         android:layout_marginStart="@dimen/margin_big"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="@dimen/margin_default"
         android:hint="@string/hint_address"
         android:inputType="text" />
 
@@ -80,14 +70,8 @@
         android:layout_height="wrap_content" />
 
     <Button
+        style="@style/ChangeButton"
         android:id="@+id/changeButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/margin_default"
-        android:background="@android:color/transparent"
-        android:text="@string/change_settings"
-        android:textColor="@color/text_selector_user_action"
-        android:textSize="20sp"
-        android:textStyle="bold" />
+        android:text="@string/change_settings" />
 
 </LinearLayout>

@@ -6,11 +6,7 @@
     android:orientation="vertical">
 
     <ImageButton
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:clickable="false"
-        android:layout_gravity="center"
-        android:background="@android:color/transparent"
+        style="@style/TabButton"
         android:id="@+id/tabImageButton" />
 
 </LinearLayout>

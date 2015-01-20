@@ -5,14 +5,7 @@
     android:layout_height="@dimen/notice_view_height">
 
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:textAppearance="?android:attr/textAppearanceMedium"
         android:id="@+id/noticeViewMessageTextView"
-        android:gravity="center"
-        android:textSize="18sp"
-        android:textColor="@color/white"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+        style="@style/Notice"/>
 
 </RelativeLayout>
