@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import com.cling.cling.MainActivity;
 import com.cling.cling.R;
@@ -35,6 +36,8 @@ public class AuthFragment extends Fragment {
 
         final EditText confirmCodeEditText = (EditText) rootView.findViewById(R.id.confirmCodeEditText);
 
+        final TextView errorCodeTextView = (TextView) rootView.findViewById(R.id.errorCodeTextView);
+
         confirmPhoneButton.setVisibility(View.GONE);
         confirmCodeEditText.setVisibility(View.GONE);
 
@@ -51,8 +54,11 @@ public class AuthFragment extends Fragment {
             public void onClick(View view) {
                 Log.v("auth", confirmCodeEditText.getText().toString());
                 if ("0000".equals(confirmCodeEditText.getText().toString())) {
+                    errorCodeTextView.setVisibility(View.GONE);
                     Intent intent = new Intent(getActivity(), MainActivity.class);
                     startActivity(intent);
+                } else {
+                    errorCodeTextView.setVisibility(View.VISIBLE);
                 }
             }
         });

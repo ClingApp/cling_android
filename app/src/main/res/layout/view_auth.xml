@@ -48,6 +48,15 @@
             style="@style/AuthButton"
             android:text="@string/hint_confirm"/>
 
+        <TextView
+            android:id="@+id/errorCodeTextView"
+            style="@style/UnderLinedAuthEditText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/hint_error_code"
+            android:textStyle="bold"
+            android:visibility="gone" />
+
     </LinearLayout>
 
 </LinearLayout>
