@@ -37,6 +37,7 @@
     <string name="hint_product_price">Цена</string>
     <string name="hint_product_description">Описание товара</string>
     <string name="hint_search">Поиск</string>
+    <string name="hint_confirm_code">Код подтверждения</string>
     <string name="title_make_order">Buy</string>
     <string name="title_action_my_items">Мои товары</string>
     <string name="title_action_my_orders">Мои покупки</string>
