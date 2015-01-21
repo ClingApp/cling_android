@@ -14,6 +14,7 @@ import android.widget.TextView;
 
 import com.cling.cling.MainActivity;
 import com.cling.cling.R;
+import com.cling.cling.Utilities.PreferencesHelper;
 
 public class AuthFragment extends Fragment {
 
@@ -55,6 +56,9 @@ public class AuthFragment extends Fragment {
                 Log.v("auth", confirmCodeEditText.getText().toString());
                 if ("0000".equals(confirmCodeEditText.getText().toString())) {
                     errorCodeTextView.setVisibility(View.GONE);
+                    confirmPhoneButton.setVisibility(View.GONE);
+                    int userId = 1;
+                    PreferencesHelper.INSTANCE.setUserId(userId);
                     Intent intent = new Intent(getActivity(), MainActivity.class);
                     startActivity(intent);
                 } else {

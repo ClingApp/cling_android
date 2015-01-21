@@ -22,7 +22,6 @@ public enum PreferencesHelper {
         this.preferences = PreferenceManager.getDefaultSharedPreferences(context);
     }
 
-    //Save your shit here.
 
     private static final String KEY_MANUAL_LEARNED = "manual_learned";
 
@@ -37,4 +36,19 @@ public enum PreferencesHelper {
 
        return preferences.getBoolean(KEY_MANUAL_LEARNED, false);
     }
+
+    private static final String USER_ID = "user_id";
+
+    public void setUserId(int userId) {
+
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putInt(USER_ID, userId);
+        editor.apply();
+    }
+
+    public int getUserId() {
+
+        return preferences.getInt(USER_ID, -1);
+    }
+
 }

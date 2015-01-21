@@ -13,6 +13,7 @@ import android.widget.ImageButton;
 import android.widget.TabHost;
 
 import com.cling.cling.Adapters.MainFragmentAdapter;
+import com.cling.cling.Fragments.AuthFragment;
 import com.cling.cling.Utilities.PreferencesHelper;
 
 public class MainActivity extends FragmentActivity {
@@ -23,6 +24,12 @@ public class MainActivity extends FragmentActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        if (PreferencesHelper.INSTANCE.getUserId() == -1) {
+            Intent intent = new Intent(this, InfoActivity.class);
+            ClingApp.startActivityWithAnimation(this, intent);
+        }
+
         setContentView(R.layout.activity_main);
 
         getSupportFragmentManager().addOnBackStackChangedListener(new FragmentManager.OnBackStackChangedListener() {
