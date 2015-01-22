@@ -15,6 +15,7 @@ import android.util.Log;
 import com.cling.cling.Fragments.ProductFragment;
 import com.cling.cling.MainActivity;
 import com.cling.cling.Models.Product;
+import com.cling.cling.db.GoodsQueries;
 import com.google.gson.JsonParser;
 
 import org.json.JSONArray;
@@ -49,6 +50,9 @@ public class Processor {
         if (intent != null) {
             String method = intent.getExtras().getString(RestConsts.METHOD_NAME.toString());
 
+            GoodsQueries goodsQueries = new GoodsQueries(context);
+            goodsQueries.open();
+
             if (RestConsts.GET.toString().equals(method)) {
                 String subject = intent.getStringExtra(RestConsts.SUBJECT.toString());
                 String params = intent.getStringExtra(RestConsts.PARAMS.toString());
@@ -68,6 +72,10 @@ public class Processor {
                 id = json.getJSONObject("good").getInt("id");
                 seller_id = json.getJSONObject("good").getInt("seller_id");
                 photo = basic_url + json.getJSONObject("good").getString("photo");
+
+                Product product = new Product(id, title, description, price);
+
+                goodsQueries.insertGood(product);
 
                 URL url_photo = null;
                 try {
@@ -96,26 +104,33 @@ public class Processor {
                 ResultReceiver receiver = intent.getParcelableExtra(ServiceHelper.RECEIVER);
                 final Bundle data = new Bundle();
                 Log.v("json", json.toString());
-//                JSONObject goods = json.getJSONObject("goods");
+                JSONObject goods = json.getJSONObject("goods");
 
                 ArrayList<Integer> products_ids = new ArrayList<Integer>();
                 products_ids.add(1);
-//                ArrayList<Product> products = new ArrayList<Product>();
-//                for (int i = 0; i < goods.length(); i++) {
-//                    photo = basic_url + goods.getString("photo");
-//                    URL url_photo = null;
-//                    try {
-//                        url_photo = new URL(photo);
-//                        Bitmap bmp = BitmapFactory.decodeStream(url_photo.openConnection().getInputStream());
-//                        Product pr = new Product(goods.getString("title"), goods.getString("description"),
-//                                goods.getString("price") + " руб.", bmp, goods.getInt("seller_id"), goods.getInt("id"));
-//                        products.add(pr);
-//                    } catch (MalformedURLException e) {
-//                        e.printStackTrace();
-//                    } catch (IOException e) {
-//                        e.printStackTrace();
-//                    }
-//                }
+
+
+                ArrayList<Product> products = new ArrayList<Product>();
+                for (int i = 0; i < goods.length(); i++) {
+                    photo = basic_url + goods.getString("photo");
+                    URL url_photo = null;
+                    try {
+                        url_photo = new URL(photo);
+                        Bitmap bmp = BitmapFactory.decodeStream(url_photo.openConnection().getInputStream());
+
+                        Product pr = new Product(goods.getInt("id"), goods.getString("title"), goods.getString("description"),
+                                goods.getString("price") + " руб.");
+
+                        products.add(pr);
+
+                        goodsQueries.insertGood(pr);
+                        products_ids.add(pr.id);
+                    } catch (MalformedURLException e) {
+                        e.printStackTrace();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
 
 //                data.putParcelableArrayList("products", products);
                 data.putIntegerArrayList("products_ids", products_ids);
