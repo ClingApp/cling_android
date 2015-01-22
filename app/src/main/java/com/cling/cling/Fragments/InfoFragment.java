@@ -63,12 +63,6 @@ public class InfoFragment extends Fragment {
 
         infoTextView.setText(info);
 
-        /*if (position != 0) {
-            imageView.setVisibility(View.INVISIBLE);
-        }*/
-
-        //TODO: load description image (if needed)
-
         return rootView;
     }
 }

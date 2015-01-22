@@ -13,7 +13,7 @@ public class DbHelper extends SQLiteOpenHelper {
     public static final String TABLE_COLUMN_ID = "id";
     public static final String TABLE_COLUMN_TITLE = "title";
     public static final String TABLE_COLUMN_PRICE = "price";
-    public static final String TABLE_COLUMN_DESCRIPTION = "price";
+    public static final String TABLE_COLUMN_DESCRIPTION = "description";
     public static final String TABLE_COLUMN_TIMESTAMP = "timestamp";
     public static final String TABLE_COLUMN_SELLER_ID = "seller_id";
     public static final String TABLE_COLUMN_PHOTO = "photo";

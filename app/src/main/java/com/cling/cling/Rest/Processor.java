@@ -117,6 +117,7 @@ public class Processor {
                     try {
                         url_photo = new URL(photo);
                         Bitmap bmp = BitmapFactory.decodeStream(url_photo.openConnection().getInputStream());
+                        Log.v("id", goods.getString("title"));
 
                         Product pr = new Product(goods.getInt("id"), goods.getString("title"), goods.getString("description"),
                                 goods.getString("price") + " руб.");

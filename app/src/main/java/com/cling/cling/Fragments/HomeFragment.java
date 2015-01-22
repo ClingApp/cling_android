@@ -2,6 +2,7 @@ package com.cling.cling.Fragments;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
@@ -24,6 +25,8 @@ import com.cling.cling.Rest.RestConsts;
 import com.cling.cling.Rest.ServiceHelper;
 import com.cling.cling.UniversalFragmentActivity;
 import com.cling.cling.Utilities.PreferencesHelper;
+import com.cling.cling.db.DbHelper;
+import com.cling.cling.db.GoodsQueries;
 
 import java.io.IOException;
 import java.net.MalformedURLException;
@@ -83,19 +86,33 @@ public class HomeFragment extends Fragment implements AppResultReceiver.Receiver
                 break;
             case RestConsts.STATUS_OK :
 
-//                ArrayList<Integer> products_ids = data.getIntegerArrayList("products_ids");
+                ArrayList<Integer> products_ids = data.getIntegerArrayList("products_ids");
 
                 ArrayList<Product> products = new ArrayList<Product>();
 
-                Product pr1 = new Product(1, "title1", "description1", "price1");
-                Product pr2 = new Product(2, "title2", "description2", "price2");
+                GoodsQueries goodsQueries = new GoodsQueries(getActivity().getApplicationContext());
+                goodsQueries.open();
 
-                products.add(pr1);
-                products.add(pr2);
+                for (int i=0; i < products_ids.size(); i++) {
+                    Cursor cursor = goodsQueries.getGoodById(products_ids.get(i));
+                    if (cursor != null) {
+                        cursor.moveToFirst();
+                        do {
+                            int id = cursor.getInt(cursor.getColumnIndex(DbHelper.TABLE_COLUMN_ID));
+                            String title = cursor.getString(cursor.getColumnIndex(DbHelper.TABLE_COLUMN_TITLE));
+                            String description = cursor.getString(cursor.getColumnIndex(DbHelper.TABLE_COLUMN_DESCRIPTION));
+                            String price = cursor.getString(cursor.getColumnIndex(DbHelper.TABLE_COLUMN_PRICE));
 
-                //взять из базы по айдишникам продукты
+                            Product pr = new Product(id, title, description, price);
+                            products.add(pr);
 
-//                products.add(pr);
+                        } while (cursor.moveToNext());
+                    }
+                }
+
+
+
+
 
                 final ArrayList<Product> const_products = products;
 
