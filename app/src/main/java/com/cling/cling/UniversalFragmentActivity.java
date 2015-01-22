@@ -10,11 +10,13 @@ import com.cling.cling.Fragments.AddProductFragment;
 import com.cling.cling.Fragments.HomeFragment;
 import com.cling.cling.Fragments.ProductFragment;
 import com.cling.cling.Fragments.ProfileFragment;
+import com.cling.cling.Fragments.SettingFragment;
 
 import static com.cling.cling.UniversalFragmentActivity.AppropriateFragments.ADD_PRODUCT;
 import static com.cling.cling.UniversalFragmentActivity.AppropriateFragments.PRODUCT;
 import static com.cling.cling.UniversalFragmentActivity.AppropriateFragments.USER;
 import static com.cling.cling.UniversalFragmentActivity.AppropriateFragments.USERS_PRODUCTS;
+import static com.cling.cling.UniversalFragmentActivity.AppropriateFragments.SETTINGS;
 
 public class UniversalFragmentActivity extends FragmentActivity {
 
@@ -72,6 +74,9 @@ public class UniversalFragmentActivity extends FragmentActivity {
                 } else if (fragmentId.equals(USERS_PRODUCTS.getId())) {
 
                     currentFragment = HomeFragment.newInstance();
+                }  else if (fragmentId.equals(SETTINGS.getId())) {
+
+                    currentFragment = SettingFragment.newInstance();
                 }
             }
         }
@@ -107,7 +112,8 @@ public class UniversalFragmentActivity extends FragmentActivity {
         PRODUCT("product"),
         ADD_PRODUCT("add_product"),
         USER("user"),
-        USERS_PRODUCTS("users_products");
+        USERS_PRODUCTS("users_products"),
+        SETTINGS("setttings");
 
         private String id;
 

@@ -23,9 +23,7 @@ public class InfoActivity extends FragmentActivity {
         }
         setContentView(R.layout.activity_info);
 
-        String[] descriptions = {"Душа моя озарена неземной радостью, как эти чудесные весенние утра, которыми я наслаждаюсь от всего сердца.",
-                "Душа моя озарена неземной радостью, как эти чудесные весенние утра, которыми я наслаждаюсь от всего сердца. Я совсем один и блаженствую в здешнем краю, словно созданном для таких, как я.",
-                "Душа моя озарена неземной радостью, как эти чудесные весенние утра, которыми я наслаждаюсь от всего сердца."};
+        String[] descriptions = {"Семестровый проект по `Android`"};
 
         InfoAdapter adapter = new InfoAdapter(getSupportFragmentManager(), descriptions);
         viewPager = (ViewPager) findViewById(R.id.infoViewPager);

@@ -82,7 +82,8 @@ public class MainActivity extends FragmentActivity {
 
         } else if (id == R.id.action_settings) {
 
-            Intent intent = new Intent(MainActivity.this, InfoActivity.class);
+            Intent intent = new Intent(MainActivity.this, UniversalFragmentActivity.class);
+            intent.putExtra(UniversalFragmentActivity.ARG_FRAGMENT_ID, UniversalFragmentActivity.AppropriateFragments.SETTINGS.getId());
             startActivity(intent);
 
         }
@@ -185,4 +186,6 @@ public class MainActivity extends FragmentActivity {
             getSupportFragmentManager().popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE);
         }
     }
+
+
 }

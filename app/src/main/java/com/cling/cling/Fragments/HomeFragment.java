@@ -60,23 +60,9 @@ public class HomeFragment extends Fragment implements AppResultReceiver.Receiver
         ServiceHelper serviceHelper = new ServiceHelper(this.getActivity());
         serviceHelper.getFeed(mReceiver);
 
-//        String[] data = {"a", "b", "c", "d", "e", "f"};
 
 
-
-//        GridAdapter adapter = new GridAdapter(getActivity(), data);
         gridView = (GridView) rootView.findViewById(R.id.homeGridView);
-//        gridView.setAdapter(adapter);
-//        gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-//            @Override
-//            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-//
-//                //TODO: put product id as parameter
-//                Intent intent = new Intent(getActivity(), UniversalFragmentActivity.class);
-//                intent.putExtra(UniversalFragmentActivity.ARG_FRAGMENT_ID, UniversalFragmentActivity.AppropriateFragments.PRODUCT.getId());
-//                ClingApp.startActivityWithAnimation(getActivity(), intent);
-//            }
-//        });
 
         return rootView;
     }
@@ -119,7 +105,6 @@ public class HomeFragment extends Fragment implements AppResultReceiver.Receiver
                     @Override
                     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-                        //TODO: put product id as parameter
                         Intent intent = new Intent(getActivity(), UniversalFragmentActivity.class);
                         intent.putExtra(UniversalFragmentActivity.ARG_FRAGMENT_ID, UniversalFragmentActivity.AppropriateFragments.PRODUCT.getId());
                         intent.putExtra(UniversalFragmentActivity.PRODUCT_ID, const_products.get(position).id);
