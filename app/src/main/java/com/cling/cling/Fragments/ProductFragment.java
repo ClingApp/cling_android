@@ -135,7 +135,6 @@ public class ProductFragment extends Fragment implements AppResultReceiver.Recei
 
                 Toast toast = Toast.makeText(getActivity(), "Please, check your network connection", Toast.LENGTH_SHORT);
                 toast.show();
-                //TODO: inform user about not avalible network
                 break;
             case RestConsts.STATUS_OK :
                 String title = data.getString("title");

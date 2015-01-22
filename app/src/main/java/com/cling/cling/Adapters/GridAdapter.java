@@ -63,9 +63,9 @@ public class GridAdapter extends BaseAdapter {
             holder = (ProductViewHolder) view.getTag();
         }
 
-        holder.nameTextView.setText(data.get(position)._title);
-        holder.descTextView.setText(data.get(position)._description);
-        holder.productPriceTextView.setText(data.get(position)._price);
+        holder.nameTextView.setText(data.get(position).title);
+        holder.descTextView.setText(data.get(position).description);
+        holder.productPriceTextView.setText(data.get(position).price);
 //        holder.imageView.setImageBitmap(data.get(position)._image);
 
         return view;

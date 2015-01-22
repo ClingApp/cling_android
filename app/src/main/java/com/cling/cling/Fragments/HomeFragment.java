@@ -13,6 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.GridView;
+import android.widget.Toast;
 
 import com.cling.cling.Adapters.GridAdapter;
 import com.cling.cling.ClingApp;
@@ -90,7 +91,9 @@ public class HomeFragment extends Fragment implements AppResultReceiver.Receiver
     public void onReceiveResult(int resultCode, Bundle data) {
         switch (resultCode) {
             case RestConsts.STATUS_ERROR :
-                //TODO: inform user about not avalible network
+
+                Toast toast = Toast.makeText(getActivity(), "Please, check your network connection", Toast.LENGTH_SHORT);
+                toast.show();
                 break;
             case RestConsts.STATUS_OK :
 
@@ -98,8 +101,8 @@ public class HomeFragment extends Fragment implements AppResultReceiver.Receiver
 
                 ArrayList<Product> products = new ArrayList<Product>();
 
-                Product pr1 = new Product("title1", "description1", "price1", 1, 1);
-                Product pr2 = new Product("title2", "description2", "price2", 1, 2);
+                Product pr1 = new Product(1, "title1", "description1", "price1");
+                Product pr2 = new Product(2, "title2", "description2", "price2");
 
                 products.add(pr1);
                 products.add(pr2);
@@ -119,7 +122,7 @@ public class HomeFragment extends Fragment implements AppResultReceiver.Receiver
                         //TODO: put product id as parameter
                         Intent intent = new Intent(getActivity(), UniversalFragmentActivity.class);
                         intent.putExtra(UniversalFragmentActivity.ARG_FRAGMENT_ID, UniversalFragmentActivity.AppropriateFragments.PRODUCT.getId());
-                        intent.putExtra(UniversalFragmentActivity.PRODUCT_ID, const_products.get(position)._id);
+                        intent.putExtra(UniversalFragmentActivity.PRODUCT_ID, const_products.get(position).id);
                         ClingApp.startActivityWithAnimation(getActivity(), intent);
                     }
                 });
