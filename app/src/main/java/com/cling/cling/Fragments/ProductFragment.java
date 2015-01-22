@@ -3,6 +3,9 @@ package com.cling.cling.Fragments;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.media.Image;
 import android.os.Bundle;
 import android.os.ResultReceiver;
 import android.support.v4.app.Fragment;
@@ -24,8 +27,13 @@ import com.cling.cling.Rest.AppResultReceiver;
 import com.cling.cling.Rest.RestConsts;
 import com.cling.cling.Rest.ServiceHelper;
 import com.cling.cling.UniversalFragmentActivity;
+import com.cling.cling.Utilities.PreferencesHelper;
 
 import android.os.Handler;
+
+import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
 
 public class ProductFragment extends Fragment implements AppResultReceiver.Receiver {
 
@@ -33,6 +41,8 @@ public class ProductFragment extends Fragment implements AppResultReceiver.Recei
     private Button buyButton;
     private Button deleteButton;
     private TextView productNameTextView;
+    private TextView productDescriptionTextView;
+    private TextView productPriceTextView;
     private Integer productId;
 
     private AppResultReceiver mReceiver;
@@ -68,6 +78,8 @@ public class ProductFragment extends Fragment implements AppResultReceiver.Recei
         buyButton = (Button) rootView.findViewById(R.id.productBuyButton);
         deleteButton = (Button) rootView.findViewById(R.id.productDeleteButton);
         productNameTextView = (TextView) rootView.findViewById(R.id.productNameTextView);
+        productDescriptionTextView = (TextView) rootView.findViewById(R.id.productDescriptionTextView);
+        productPriceTextView = (TextView) rootView.findViewById(R.id.productPriceTextView);
 
         mReceiver = new AppResultReceiver(new Handler());
         mReceiver.setReceiver(this);
@@ -76,17 +88,11 @@ public class ProductFragment extends Fragment implements AppResultReceiver.Recei
         Log.v("prId", String.valueOf(productId));
         serviceHelper.getGood(productId, mReceiver);
 
-        productImageView.setImageResource(R.drawable.dump_product_1);
 
 
 
-        if (!true) {
-            deleteButton.setVisibility(View.GONE);
-            buyButton.setVisibility(View.VISIBLE);
-        } else {
-            buyButton.setVisibility(View.GONE);
-            deleteButton.setVisibility(View.VISIBLE);
-        }
+        deleteButton.setVisibility(View.GONE);
+        buyButton.setVisibility(View.VISIBLE);
 
         buyButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -130,7 +136,25 @@ public class ProductFragment extends Fragment implements AppResultReceiver.Recei
                 break;
             case RestConsts.STATUS_OK :
                 String title = data.getString("title");
+                String description = data.getString("description");
+                String price = data.getString("price");
+                Integer id = data.getInt("id");
+                Integer seller_id = data.getInt("seller_id");
+                Bitmap bitmap = data.getParcelable("photo_bm");
                 productNameTextView.setText(title);
+                productDescriptionTextView.setText(description);
+                productPriceTextView.setText(price);
+                URL url = null;
+                productImageView.setImageBitmap(bitmap);
+
+                if (!seller_id.equals(PreferencesHelper.INSTANCE.getUserId())) {
+                    deleteButton.setVisibility(View.GONE);
+                    buyButton.setVisibility(View.VISIBLE);
+                } else {
+                    buyButton.setVisibility(View.GONE);
+                    deleteButton.setVisibility(View.VISIBLE);
+                }
+
                 break;
         }
     }

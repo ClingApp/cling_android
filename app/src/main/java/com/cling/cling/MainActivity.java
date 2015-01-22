@@ -185,29 +185,4 @@ public class MainActivity extends FragmentActivity {
             getSupportFragmentManager().popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE);
         }
     }
-
-    /*private void showHome() {
-
-        popToRootFragment();
-
-        if (tabHost.getCurrentTab() == ClingApp.MenuItems.HOME.getPosition()) {
-
-            getSupportFragmentManager().beginTransaction().replace(R.id.mainFragmentContainer,
-                    HomeFragment.newInstance(), ClingApp.MenuItems.HOME.getTitle()).commit();
-        } else {
-
-            tabHost.setCurrentTab(ClingApp.MenuItems.HOME.getPosition());
-        }
-    }
-
-    public static void presentFragment(FragmentActivity activity, Fragment fragment) {
-
-        if (activity != null && activity instanceof MainActivity) {
-
-            activity.getSupportFragmentManager().beginTransaction().setCustomAnimations(R.anim.slide_enter,
-                    R.anim.slide_leave,
-                    R.anim.slide_in_left,
-                    R.anim.slide_leave_rignt).replace(R.id.mainFragmentContainer, fragment).addToBackStack(null).commit();
-        }
-    }*/
 }
