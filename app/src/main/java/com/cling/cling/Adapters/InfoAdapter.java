@@ -28,10 +28,6 @@ public class InfoAdapter extends FragmentStatePagerAdapter {
 
             return AuthFragment.newInstance();
 
-//        } else if (position == data.length - 1) {
-//
-//            return SettingFragment.newInstance();
-
         } else {
 
             return InfoFragment.newInstance(data[position], "No image", position);
