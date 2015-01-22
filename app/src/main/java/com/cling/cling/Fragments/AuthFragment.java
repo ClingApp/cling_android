@@ -94,7 +94,7 @@ public class AuthFragment extends Fragment {
             @Override
             public void onClick(View view) {
 
-                if (phoneAuthEditText.getText().toString().length() == 14) {
+                if (phoneAuthEditText.getText().toString().length() == 15) {
                     confirmPhoneButton.setVisibility(View.VISIBLE);
                     confirmCodeEditText.setVisibility(View.VISIBLE);
                 } else {
