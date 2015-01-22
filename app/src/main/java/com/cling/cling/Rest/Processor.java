@@ -107,7 +107,7 @@ public class Processor {
                 JSONObject goods = json.getJSONObject("goods");
 
                 ArrayList<Integer> products_ids = new ArrayList<Integer>();
-                products_ids.add(1);
+//                products_ids.add(1);
 
 
                 ArrayList<Product> products = new ArrayList<Product>();
@@ -117,7 +117,7 @@ public class Processor {
                     try {
                         url_photo = new URL(photo);
                         Bitmap bmp = BitmapFactory.decodeStream(url_photo.openConnection().getInputStream());
-                        Log.v("id", goods.getString("title"));
+//                        Log.v("id", goods.getString("title"));
 
                         Product pr = new Product(goods.getInt("id"), goods.getString("title"), goods.getString("description"),
                                 goods.getString("price") + " руб.");
