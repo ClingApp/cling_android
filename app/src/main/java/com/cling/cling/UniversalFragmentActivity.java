@@ -13,8 +13,6 @@ import com.cling.cling.Fragments.ProfileFragment;
 
 import static com.cling.cling.UniversalFragmentActivity.AppropriateFragments.ADD_PRODUCT;
 import static com.cling.cling.UniversalFragmentActivity.AppropriateFragments.PRODUCT;
-import static com.cling.cling.UniversalFragmentActivity.AppropriateFragments.REGISTRATION;
-import static com.cling.cling.UniversalFragmentActivity.AppropriateFragments.SEARCH;
 import static com.cling.cling.UniversalFragmentActivity.AppropriateFragments.USER;
 import static com.cling.cling.UniversalFragmentActivity.AppropriateFragments.USERS_PRODUCTS;
 
@@ -59,7 +57,7 @@ public class UniversalFragmentActivity extends FragmentActivity {
 
                 if (fragmentId.equals(PRODUCT.getId())) {
 
-                    currentFragment = ProductFragment.newInstance();
+                    currentFragment = ProductFragment.newInstance(1);
 
                 } else if (fragmentId.equals(ADD_PRODUCT.getId())) {
 
@@ -73,22 +71,6 @@ public class UniversalFragmentActivity extends FragmentActivity {
 
                     currentFragment = HomeFragment.newInstance();
                 }
-
-                /*try { escape reflection!
-                    Class<?> c = Class.forName(extras.getString(ARG_FRAGMENT));
-                    Constructor<?> cons = c.getConstructors()[0];
-                    currentFragment = (Fragment) cons.newInstance();
-
-                } catch (ClassNotFoundException e) {
-                    e.printStackTrace();
-                    Log.i("HUETA class", "HUETA CLASS");
-                } catch (InvocationTargetException e) {
-                    e.printStackTrace();
-                } catch (InstantiationException e) {
-                    e.printStackTrace();
-                } catch (IllegalAccessException e) {
-                    e.printStackTrace();
-                }*/
             }
         }
     }

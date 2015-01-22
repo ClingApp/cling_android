@@ -2,6 +2,8 @@ package com.cling.cling.Rest;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.ResultReceiver;
+import android.util.Log;
 
 import com.cling.cling.Models.Product;
 /**
@@ -11,15 +13,18 @@ public class ServiceHelper {
 
     private Context context;
 
+    public final static String RECEIVER = "RECEIVER";
+
     public ServiceHelper(Context context) {
         this.context = context;
     }
 
-    void getGood(int id) {
+    public void getGood(Integer id, ResultReceiver receiver) {
         Intent intent = new Intent(context, RestService.class);
         intent.putExtra(RestConsts.METHOD_NAME.toString(), RestConsts.GET);
         intent.putExtra(RestConsts.SUBJECT.toString(), RestConsts.PRODUCT);
-        intent.putExtra(RestConsts.PARAMS.toString(), id);
+        intent.putExtra(RestConsts.PARAMS.toString(), id.toString());
+        intent.putExtra(RECEIVER, receiver);
 
         context.startService(intent);
     }

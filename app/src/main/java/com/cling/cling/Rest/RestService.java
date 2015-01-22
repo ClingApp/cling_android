@@ -2,22 +2,21 @@ package com.cling.cling.Rest;
 
 import android.app.IntentService;
 import android.content.Intent;
-import android.content.Context;
-import android.util.Log;
+import android.os.Bundle;
+import android.os.ResultReceiver;
 
-import java.io.BufferedReader;
+import org.json.JSONException;
+
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
-import java.net.URL;
+
 
 public class RestService extends IntentService {
 
     private static final String LOG_TAG = "RestService";
 
     private static final String API_URL = "http://188.166.6.241/api/";
+
+    private Network network;
 
     public RestService() {
         super("RestService");
@@ -26,49 +25,21 @@ public class RestService extends IntentService {
     @Override
     protected void onHandleIntent(Intent intent) {
         if (intent != null) {
-            String method = intent.getExtras().getString(RestConsts.METHOD_NAME.toString());
 
-            if (RestConsts.GET.name().equals(method)) {
-                sendGet(intent);
-            } else if (RestConsts.POST.equals(method)) {
-                sendPost(intent);
+            network = new Network();
+
+            Processor processor = new Processor(getBaseContext());
+            try {
+                processor.request(intent, network);
+            } catch (JSONException e) {
+                e.printStackTrace();
+                ResultReceiver receiver = intent.getParcelableExtra(ServiceHelper.RECEIVER);
+                final Bundle data = new Bundle();
+                data.putString("ERROR","no connection");
+                receiver.send(RestConsts.STATUS_ERROR, data);
+            } catch (IOException e) {
+                e.printStackTrace();
             }
         }
-    }
-
-    private void sendGet(Intent intent) {
-
-        HttpURLConnection connection = null;
-
-        try {
-            URL url = new URL(API_URL +
-                    intent.getExtras().getString(RestConsts.SUBJECT.apiName()) +
-                    intent.getExtras().get(RestConsts.PARAMS.toString()));
-
-            connection = (HttpURLConnection) url.openConnection();
-            connection.connect();
-
-            InputStream is = connection.getInputStream();
-
-            BufferedReader reader = new BufferedReader(new InputStreamReader(is));
-            StringBuilder sb = new StringBuilder();
-
-            String line = null;
-            while ((line = reader.readLine()) != null) {
-                sb.append(line).append("\n");
-            }
-
-            String dataAsString = sb.toString();
-            Log.v(LOG_TAG, dataAsString);
-
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    private void sendPost(Intent intent) {
-
     }
 }
