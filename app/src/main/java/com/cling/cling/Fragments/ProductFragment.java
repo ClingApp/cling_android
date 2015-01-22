@@ -85,7 +85,6 @@ public class ProductFragment extends Fragment implements AppResultReceiver.Recei
         mReceiver.setReceiver(this);
 
         ServiceHelper serviceHelper = new ServiceHelper(this.getActivity());
-        Log.v("prId", String.valueOf(productId));
         serviceHelper.getGood(productId, mReceiver);
 
 
@@ -144,7 +143,6 @@ public class ProductFragment extends Fragment implements AppResultReceiver.Recei
                 productNameTextView.setText(title);
                 productDescriptionTextView.setText(description);
                 productPriceTextView.setText(price);
-                URL url = null;
                 productImageView.setImageBitmap(bitmap);
 
                 if (!seller_id.equals(PreferencesHelper.INSTANCE.getUserId())) {

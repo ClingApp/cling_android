@@ -29,43 +29,44 @@ public class ServiceHelper {
         context.startService(intent);
     }
 
-    void getGoodsForId(int id) {
+//    void getGoodsForId(int id) {
+//        Intent intent = new Intent(context, RestService.class);
+//        intent.putExtra(RestConsts.METHOD_NAME.toString(), RestConsts.GET);
+//        intent.putExtra(RestConsts.SUBJECT.toString(), RestConsts.PRODUCT);
+//        intent.putExtra(RestConsts.PARAMS.toString(), "user_id=" + id);
+//
+//        context.startService(intent);
+//    }
+//
+//    void addGood(Product product) {
+//        Intent intent = new Intent(context, RestService.class);
+//        intent.putExtra(RestConsts.METHOD_NAME.toString(), RestConsts.POST);
+//        intent.putExtra(RestConsts.SUBJECT.toString(), RestConsts.PRODUCT);
+//        intent.putExtra(RestConsts.PARAMS.toString(), product.name);
+//
+//        context.startService(intent);
+//    }
+//
+//
+//    void getUser(int id) {
+//        Intent intent = new Intent(context, RestService.class);
+//        intent.putExtra(RestConsts.METHOD_NAME.toString(), RestConsts.GET);
+//        intent.putExtra(RestConsts.SUBJECT.toString(), RestConsts.USER);
+//        intent.putExtra(RestConsts.PARAMS.toString(), id);
+//
+//        context.startService(intent);
+//    }
+//
+//    void updateUser(int id) {
+//
+//    }
+
+
+    public void getFeed(ResultReceiver receiver) {
         Intent intent = new Intent(context, RestService.class);
-        intent.putExtra(RestConsts.METHOD_NAME.toString(), RestConsts.GET);
-        intent.putExtra(RestConsts.SUBJECT.toString(), RestConsts.PRODUCT);
-        intent.putExtra(RestConsts.PARAMS.toString(), "user_id=" + id);
-
-        context.startService(intent);
-    }
-
-    void addGood(Product product) {
-        Intent intent = new Intent(context, RestService.class);
-        intent.putExtra(RestConsts.METHOD_NAME.toString(), RestConsts.POST);
-        intent.putExtra(RestConsts.SUBJECT.toString(), RestConsts.PRODUCT);
-        intent.putExtra(RestConsts.PARAMS.toString(), product.name);
-
-        context.startService(intent);
-    }
-
-
-    void getUser(int id) {
-        Intent intent = new Intent(context, RestService.class);
-        intent.putExtra(RestConsts.METHOD_NAME.toString(), RestConsts.GET);
-        intent.putExtra(RestConsts.SUBJECT.toString(), RestConsts.USER);
-        intent.putExtra(RestConsts.PARAMS.toString(), id);
-
-        context.startService(intent);
-    }
-
-    void updateUser(int id) {
-
-    }
-
-
-    void getFeed() {
-        Intent intent = new Intent(context, RestService.class);
-        intent.putExtra(RestConsts.METHOD_NAME.toString(), RestConsts.GET);
-        intent.putExtra(RestConsts.SUBJECT.toString(), RestConsts.FEED);
+        intent.putExtra(RestConsts.METHOD_NAME.toString(), RestConsts.GET_FEED);
+        intent.putExtra(RestConsts.FEED.toString(), RestConsts.FEED);
+        intent.putExtra(RECEIVER, receiver);
 
         context.startService(intent);
     }

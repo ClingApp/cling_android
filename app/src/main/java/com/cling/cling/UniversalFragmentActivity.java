@@ -21,6 +21,7 @@ public class UniversalFragmentActivity extends FragmentActivity {
 
     public static final String ARG_FRAGMENT_ID = "argument_fragment_id";
     public static final String ARG_FRAGMENT_EXTRAS = "argument_fragment_extras";
+    public static final String PRODUCT_ID = "product_id";
     private Fragment currentFragment;
 
     @Override
@@ -57,7 +58,8 @@ public class UniversalFragmentActivity extends FragmentActivity {
 
                 if (fragmentId.equals(PRODUCT.getId())) {
 
-                    currentFragment = ProductFragment.newInstance(1);
+                    Integer productId = extras.getInt(PRODUCT_ID);
+                    currentFragment = ProductFragment.newInstance(productId);
 
                 } else if (fragmentId.equals(ADD_PRODUCT.getId())) {
 

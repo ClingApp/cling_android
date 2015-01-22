@@ -16,6 +16,7 @@ public class RestConsts {
     public static final String PRODUCT = "goods";
     public static final String FEED = "feed";
     public static final String PARAMS = "params";
+    public static final String GET_FEED = "get_feed";
     public static final int STATUS_ERROR = 0;
     public static final int STATUS_OK = 1;
 }

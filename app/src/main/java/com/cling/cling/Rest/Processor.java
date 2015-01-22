@@ -14,6 +14,7 @@ import android.util.Log;
 
 import com.cling.cling.Fragments.ProductFragment;
 import com.cling.cling.MainActivity;
+import com.cling.cling.Models.Product;
 import com.google.gson.JsonParser;
 
 import org.json.JSONArray;
@@ -23,6 +24,7 @@ import org.json.JSONObject;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.ArrayList;
 
 
 public class Processor {
@@ -85,78 +87,45 @@ public class Processor {
                 data.putInt("id", id);
                 data.putInt("seller_id", seller_id);
                 receiver.send(RestConsts.STATUS_OK, data);
+            } else if (RestConsts.GET_FEED.toString().equals(method)) {
+                String basic_url = url;
+                url += "api/";
+                url += "feed";
+                Log.v("url", url);
+                json = new JSONObject(network.urlConnectionGet(url));
+                ResultReceiver receiver = intent.getParcelableExtra(ServiceHelper.RECEIVER);
+                final Bundle data = new Bundle();
+                Log.v("json", json.toString());
+//                JSONObject goods = json.getJSONObject("goods");
+
+                ArrayList<Integer> products_ids = new ArrayList<Integer>();
+                products_ids.add(1);
+//                ArrayList<Product> products = new ArrayList<Product>();
+//                for (int i = 0; i < goods.length(); i++) {
+//                    photo = basic_url + goods.getString("photo");
+//                    URL url_photo = null;
+//                    try {
+//                        url_photo = new URL(photo);
+//                        Bitmap bmp = BitmapFactory.decodeStream(url_photo.openConnection().getInputStream());
+//                        Product pr = new Product(goods.getString("title"), goods.getString("description"),
+//                                goods.getString("price") + " руб.", bmp, goods.getInt("seller_id"), goods.getInt("id"));
+//                        products.add(pr);
+//                    } catch (MalformedURLException e) {
+//                        e.printStackTrace();
+//                    } catch (IOException e) {
+//                        e.printStackTrace();
+//                    }
+//                }
+
+//                data.putParcelableArrayList("products", products);
+                data.putIntegerArrayList("products_ids", products_ids);
+                receiver.send(RestConsts.STATUS_OK, data);
             }
 
 
 
-//
-//            if (JsonParser.ACTION_LOGIN.equals(action)||JsonParser.ACTION_REGISTER.equals(action)) {
-//                String login = intent.getStringExtra(LoginActivity.LOGIN);
-//                String password = intent.getStringExtra(LoginActivity.PASS);
-//                if (JsonParser.ACTION_LOGIN.equals(action))
-//                    url += "api/owners/login/";
-//                else
-//                    url += "api/owners/register/";
-//                urlparametres.put("username", login);
-//                urlparametres.put("password", password);
-//                json = new JSONObject(network.urlConnectionPost(url, urlparametres.toString()));
-//                ResultReceiver receiver = intent.getParcelableExtra(LoginActivity.RECEIVER);
-//                final Bundle data = new Bundle();
-//                if (!json.toString().contains("error")) {
-//                    idOwner = json.getInt("owner_key");
-//                    data.putInt("RECEIVER_DATA", idOwner);
-//                    receiver.send(1, data);
-//                    Log.d("json", "id to activity");
-//                }
-//                else {
-//                    data.putString("ERROR",json.get("error").toString());
-//                    receiver.send(LoginActivity.STATUS_ERROR, data);
-//                }
-//            } else if (JsonParser.ACTION_ADDING_DEVICE.equals(action)) {
-//                int idOwner = intent.getIntExtra(MainActivity.OWNER, 0);
-//                int idDevice = intent.getIntExtra(MainActivity.ID_DEVICE, 0);
-//                String title = intent.getStringExtra(MainActivity.DEVICE_TITLE);
-//                url += "api/devices/add/";
-//                urlparametres.put("owner", idOwner);
-//                urlparametres.put("title", title);
-//                urlparametres.put("device", idDevice);
-//                json = new JSONObject(network.urlConnectionPost(url, urlparametres.toString()));
-//            } else if (JsonParser.ACTION_REMOVE_DEVICE.equals(action)) {
-//                int idOwner = intent.getIntExtra(MainActivity.OWNER, 0);
-//                int idDevice = intent.getIntExtra(MainActivity.ID_DEVICE, 0);
-//                url += "api/devices/remove/?owner=" + idOwner + "&device=" + idDevice;
-//            } else if (JsonParser.ACTION_ADDING_EVENTS.equals(action)) {
-//                int idOwner = intent.getIntExtra(MainActivity.OWNER, 0);
-//                int idDevice = intent.getIntExtra(MainActivity.ID_DEVICE, 0);
-//                String eventDateBegin = intent.getStringExtra(MainActivity.EVENT_DATE_BEGIN);
-//                int temperature = intent.getIntExtra(MainActivity.TEMPERATURE, 0);
-//                url += "api/events/add/";
-//                urlparametres.put("owner", idOwner);
-//                urlparametres.put("device", idDevice);
-//                urlparametres.put("event_date_begin", eventDateBegin);
-//                urlparametres.put("temperature", temperature);
-//                json = new JSONObject(network.urlConnectionPost(url, urlparametres.toString()));
-//            } else if (JsonParser.ACTION_ADDING_MORE_EVENTS_INFO.equals(action)) {
-//                int idOwner = intent.getIntExtra(MainActivity.OWNER, 0);
-//                int idPage = intent.getIntExtra(MainActivity.ID_PAGE, 0);
-//                url += "api/events/more/?owner=" + idOwner + "&page=" + idPage;
-//                json = new JSONObject(network.urlConnectionGet(url));
-//            } else if (JsonParser.ACTION_ENDED_EVENTS.equals(action)) {
-//                int idOwner = intent.getIntExtra(MainActivity.OWNER, 0);
-//                int idDevice = intent.getIntExtra(MainActivity.ID_DEVICE, 0);
-//                int idEvent = intent.getIntExtra(MainActivity.ID_EVENT, 0);
-//                url += "api/events/ended/?owner=" + idOwner + "&device=" + idDevice + "&event=" + idEvent;
-//                json = new JSONObject(network.urlConnectionGet(url));
-//            } else if (JsonParser.ACTION_ADDING_MORE_DEVICES_INFO.equals(action)) {
-//                int idOwner = intent.getIntExtra(MainActivity.OWNER, 0);
-//                int idDevice = intent.getIntExtra(MainActivity.ID_DEVICE, 0);
-//                int idPage = intent.getIntExtra(MainActivity.ID_PAGE, 0);
-//                url += "api/devices/about/more/?owner=" + idOwner + "&device=" + idDevice + "&page=" + idPage;
-//                json = new JSONObject(network.urlConnectionGet(url));
-//            }
+
         }
-//        JsonParser jsonParser = new JsonParser(context);
-//        jsonParser.jsonToContentProvider(action, json);
     }
 
 }
