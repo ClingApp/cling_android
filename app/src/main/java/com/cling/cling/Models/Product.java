@@ -1,9 +1,8 @@
 package com.cling.cling.Models;
 
 import android.graphics.Bitmap;
-import android.os.Parcel;
-import android.os.Parcelable;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -12,19 +11,12 @@ import java.util.List;
 
 public class Product {
 
-    public String _title;
-    public String _description;
-    public String _price;
-    public Integer _seller_id;
-    public Bitmap _image;
-    public Integer _id;
-
-    public Product( String title, String description, String price, Integer seller_id, Integer id) {
-        _title = title;
-        _description = description;
-        _price = price;
-//        _image = image;
-        _seller_id = seller_id;
-        _id = id;
-    }
+    public int id;
+    public String title;
+    public String description;
+    public String price;
+    public User seller_id;
+    public Date date;
+    public String photo;
+    public Bitmap image;
 }

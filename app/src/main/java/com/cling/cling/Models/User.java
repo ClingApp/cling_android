@@ -6,6 +6,7 @@ package com.cling.cling.Models;
 
 public class User {
 
+    public int id;
     public String login;
     public String name;
     public String surname;
