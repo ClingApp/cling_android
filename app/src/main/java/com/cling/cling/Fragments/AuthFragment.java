@@ -94,7 +94,7 @@ public class AuthFragment extends Fragment {
             @Override
             public void onClick(View view) {
 
-                if (phoneAuthEditText.getText().toString().length() == 11) {
+                if (phoneAuthEditText.getText().toString().length() == 14) {
                     confirmPhoneButton.setVisibility(View.VISIBLE);
                     confirmCodeEditText.setVisibility(View.VISIBLE);
                 } else {
@@ -122,28 +122,6 @@ public class AuthFragment extends Fragment {
                 }
             }
         });
-
-//        Button registrationButton = (Button) rootView.findViewById(R.id.signUpButton);
-//        registrationButton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//
-//                /*Intent intent = new Intent(getActivity(), UniversalFragmentActivity.class);
-//                intent.putExtra(UniversalFragmentActivity.ARG_FRAGMENT_ID, UniversalFragmentActivity.AppropriateFragments.REGISTRATION.getId());
-//                startActivity(intent);
-//                getActivity().overridePendingTransition(R.anim.slide_enter, R.anim.slide_leave);*/
-//
-//                RegistrationDialogFragment.newInstance().show(getFragmentManager(), "registration");
-//            }
-//        });
-//
-//        Button loginButton = (Button) rootView.findViewById(R.id.signInButton);
-//        loginButton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                LoginDialogFragment.newInstance().show(getFragmentManager(), "login");
-//            }
-//        });
 
         return rootView;
     }

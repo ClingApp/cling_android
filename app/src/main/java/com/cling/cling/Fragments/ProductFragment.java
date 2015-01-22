@@ -30,6 +30,7 @@ import com.cling.cling.UniversalFragmentActivity;
 import com.cling.cling.Utilities.PreferencesHelper;
 
 import android.os.Handler;
+import android.widget.Toast;
 
 import java.io.IOException;
 import java.net.MalformedURLException;
@@ -132,6 +133,9 @@ public class ProductFragment extends Fragment implements AppResultReceiver.Recei
     public void onReceiveResult(int resultCode, Bundle data) {
         switch (resultCode) {
             case RestConsts.STATUS_ERROR :
+
+                Toast toast = Toast.makeText(getActivity(), "Please, check your network connection", Toast.LENGTH_SHORT);
+                toast.show();
                 //TODO: inform user about not avalible network
                 break;
             case RestConsts.STATUS_OK :

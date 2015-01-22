@@ -1,5 +1,8 @@
 package com.cling.cling.Models;
 
+import android.graphics.Bitmap;
+
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -8,12 +11,12 @@ import java.util.List;
 
 public class Product {
 
-    public String name;
+    public int id;
+    public String title;
     public String description;
     public String price;
-    public User seller;
-    public String sticker;
-    public List<String> images;
-    public List<String> categories;
-    public boolean isLiked;
+    public User seller_id;
+    public Date date;
+    public String photo;
+    public Bitmap image;
 }
